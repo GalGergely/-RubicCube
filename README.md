@@ -1,1 +1,1 @@
-# -RubicCube
+# RubicCube
