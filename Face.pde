@@ -2,11 +2,13 @@ class Face {
   PVector normal;
   color c;
   PVector pos;
+  int id;
 
-  Face(PVector normal, color c, PVector pos) {
+  Face(PVector normal, color c, PVector pos, int id) {
     this.normal = normal;
     this.c=c;
     this.pos = pos;
+    this.id = id;
   }
     void turnX(float angle) {
     PVector v = new PVector();
@@ -43,7 +45,9 @@ class Face {
     square(0, 0, 1);
     fill(0);
     scale(0.01);
-    text(pos.x+" "+pos.y+" "+pos.z, 1,1);
+    textSize(10);
+    text(id, 1, 1, 1);
+    text(id, -1, -1, -1);
     popMatrix();
   }
 }

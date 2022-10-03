@@ -1,3 +1,5 @@
+Turns turn = new Turns();
+
 void keyPressed () {
   if (!move.animate) {
     DoStuff(key);
@@ -10,7 +12,20 @@ void DoStuff(char keys) {
       cube.shuffleCube();
       break;
     case 'y' :
-      cube.Yperm();
+      cube.doPerm(turn.yperm);
+      break;
+    case 't' :
+      cube.doPerm(turn.tperm);
+      break;
+    case 'j' :
+      cube.doPerm(turn.jperm);
+      break;
+   case 'p' :
+      cube.doPerm(turn.lperm);
+      break;
+    case 'm' :
+      move = new Move(2, 0, 0, 1, cube);
+      move.start();
       break;
     case 'l' :
       move = new Move(-1, 0, 0, -1, cube);
@@ -44,6 +59,10 @@ void DoStuff(char keys) {
       move = new Move(0, 0, -1, 1, cube);
       move.start();
       break;
+    case 'w' :
+      move = new Move(0, 2, 0, 1, cube);
+      move.start();
+      break;  
     case 'u' :
       move = new Move(0, -1, 0, -1, cube);
       move.start();

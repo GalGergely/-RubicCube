@@ -6,7 +6,7 @@ Settings setting;
 Move move;
 
 Ai ai;
-boolean asd = false;
+boolean isTured = false;
 
 
 void setup() {
@@ -18,21 +18,23 @@ move = new Move(0,0,0,0, cube);
 }
 
 void draw () {
+  
   move.update();
   background(setting.backgroundColor);
   cube.drawCube(move);
+  //println(cube.data[7]);
   if(cube.moveList != "") {
     if(frameCount % 30 == 0) {
-      asd = true;
+      isTured = true;
       DoStuff(cube.moveList.charAt(0));
       cube.moveList=cube.moveList.substring(1, cube.moveList.length());
     }
   }
-  if(asd && cube.moveList == ""){
+  if(isTured && cube.moveList == ""){
     cube.shuffled=true;
     ai=new Ai(cube);
     ai.solve();
-    asd = false;
+    isTured = false;
   }
   
 }

@@ -9,18 +9,18 @@ class Box {
   PVector solvedPosition;
   
   
-  Box(PMatrix3D m, int x, int y, int z) {
+  Box(PMatrix3D m, int x, int y, int z, int facecounter) {
       solvedPosition = new PVector(x,y,z);
       this.matrix=m;
       this.x=x;
       this.y=y;
       this.z=z;
-      faces[0] = new Face(new PVector(0,0,-1), setting.blue, new PVector(x,y,z));
-      faces[1] = new Face(new PVector(0,0,1), setting.green,  new PVector(x,y,z));
-      faces[2] = new Face(new PVector(0,1,0), setting.white,  new PVector(x,y,z));
-      faces[3] = new Face(new PVector(0,-1,0), setting.yellow,  new PVector(x,y,z));
-      faces[4] = new Face(new PVector(1,0,0), setting.orange,  new PVector(x,y,z));
-      faces[5] = new Face(new PVector(-1,0,0), setting.red,  new PVector(x,y,z));
+      faces[0] = new Face(new PVector(0,0,-1), setting.blue, new PVector(x,y,z), facecounter++);
+      faces[1] = new Face(new PVector(0,0,1), setting.green,  new PVector(x,y,z),facecounter++);
+      faces[2] = new Face(new PVector(0,1,0), setting.white,  new PVector(x,y,z),facecounter++);
+      faces[3] = new Face(new PVector(0,-1,0), setting.yellow,  new PVector(x,y,z),facecounter++);
+      faces[4] = new Face(new PVector(1,0,0), setting.orange,  new PVector(x,y,z),facecounter++);
+      faces[5] = new Face(new PVector(-1,0,0), setting.red,  new PVector(x,y,z),facecounter++);
       
   }
   

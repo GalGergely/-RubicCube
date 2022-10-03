@@ -4,6 +4,7 @@ class Cube {
   Box[] data = new Box[dimension*dimension*dimension];
   boolean shuffled = false;
   String moveList = "";
+  int facecounter=0;
 
   Cube() {
     int index = 0;
@@ -12,7 +13,8 @@ class Cube {
         for (int z=-1; z<=1; z++) {
           PMatrix3D matrix = new PMatrix3D();
           matrix.translate(x, y, z);
-          data[index] = new Box(matrix, x, y, z);
+          data[index] = new Box(matrix, x, y, z,facecounter);
+          facecounter+=6;
           index++;
         }
       }
@@ -56,11 +58,10 @@ class Cube {
     }
   }
   
-  void Yperm() {
-  String[] yperm = {"r", "u", "R", "U", "R", "f", "r", "r", "U", "R", "U", "r","u","R", "F"};
-  for(int i=0; i < yperm.length; i++) {
-      print(yperm[i]);
-      moveList += yperm[i];
+  void doPerm(String[] perm) {
+  for(int i=0; i < perm.length; i++) {
+      print(perm[i]);
+      moveList += perm[i];
     }
   }
   
