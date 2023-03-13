@@ -56,7 +56,7 @@ class Cubie {
    strokeWeight(setting.strokeWeight);
    pushMatrix();
    applyMatrix(matrix);
-   //if(this.x == 1 && this.y == 0 && this.z == 1) {
+   //if(this.x == -1 && this.y == -1 && this.z == -1) {
    //} else {
    for(int i=0; i<faces.length; i++) {
      faces[i].show();

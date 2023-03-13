@@ -39,7 +39,7 @@ class Face {
         this.facing=Facing.FRONT;
       } else if (this.facing==Facing.FRONT) {
         this.facing=Facing.DOWN;
-      } else if (this.facing==Facing.DOWN) { 
+      } else if (this.facing==Facing.DOWN) {
         this.facing=Facing.BACK;
       } else if (this.facing==Facing.BACK) {
         this.facing=Facing.UP;
@@ -49,7 +49,7 @@ class Face {
         this.facing=Facing.BACK;
       } else if (this.facing==Facing.BACK) {
         this.facing=Facing.DOWN;
-      } else if (this.facing==Facing.DOWN) { 
+      } else if (this.facing==Facing.DOWN) {
         this.facing=Facing.FRONT;
       } else if (this.facing==Facing.FRONT) {
         this.facing=Facing.UP;
@@ -63,7 +63,7 @@ class Face {
         this.facing=Facing.RIGHT;
       } else if (this.facing==Facing.RIGHT) {
         this.facing=Facing.BACK;
-      } else if (this.facing==Facing.BACK) { 
+      } else if (this.facing==Facing.BACK) {
         this.facing=Facing.LEFT;
       } else if (this.facing==Facing.LEFT) {
         this.facing=Facing.FRONT;
@@ -73,21 +73,21 @@ class Face {
         this.facing=Facing.LEFT;
       } else if (this.facing==Facing.LEFT) {
         this.facing=Facing.BACK;
-      } else if (this.facing==Facing.BACK) { 
+      } else if (this.facing==Facing.BACK) {
         this.facing=Facing.RIGHT;
       } else if (this.facing==Facing.RIGHT) {
         this.facing=Facing.FRONT;
       }
     }
   }
-  
+
   void rotateFacingZ(int dir) {
     if(dir < 0) {
       if(this.facing==Facing.UP){
         this.facing=Facing.LEFT;
       } else if (this.facing==Facing.LEFT) {
         this.facing=Facing.DOWN;
-      } else if (this.facing==Facing.DOWN) { 
+      } else if (this.facing==Facing.DOWN) {
         this.facing=Facing.RIGHT;
       } else if (this.facing==Facing.RIGHT) {
         this.facing=Facing.UP;
@@ -97,7 +97,7 @@ class Face {
         this.facing=Facing.RIGHT;
       } else if (this.facing==Facing.RIGHT) {
         this.facing=Facing.DOWN;
-      } else if (this.facing==Facing.DOWN) { 
+      } else if (this.facing==Facing.DOWN) {
         this.facing=Facing.LEFT;
       } else if (this.facing==Facing.LEFT) {
         this.facing=Facing.UP;
@@ -116,7 +116,7 @@ class Face {
       rotateX(HALF_PI);
     }
     square(0, 0, 1);
-    //this.display.show();
+    this.display.show();
     popMatrix();
   }
 }

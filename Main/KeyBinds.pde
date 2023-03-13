@@ -1,6 +1,11 @@
 void keyPressed () {
   if (!move.animate) {
-    DoStuff(key);
+    if(key == 'm' || key == 'M' || key == 'w' || key == 'W') {
+      println("if you want the ai solve this move is illegal");
+      DoStuff(key);
+    } else {
+      DoStuff(key);
+    }
   }
 }
 void DoStuff(char keys) {
@@ -9,9 +14,9 @@ void DoStuff(char keys) {
     case ' ' :
       cube.shuffleCube();
       break;
-      case 's' :
+    case 's' :
       //start solving the cube
-      cube.solve();
+      cube.solving = true;
       break;
     case 'y' :
       cube.doPerm(algorithm.getAlgorithm("yperm"));

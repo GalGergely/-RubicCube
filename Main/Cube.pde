@@ -3,7 +3,8 @@ class Cube {
   int dimension = setting.dimension;
   public Cubie[] data = new Cubie[dimension*dimension*dimension];
   int facecounter=0;
-  int[] corners = {1,3,5,7,9,11,15,17,19,21,23,25};
+  int[] edges = {1,3,5,7,9,11,15,17,19,21,23,25};
+  int[] corners = {0, 2, 6, 8, 18, 20, 24, 26};
 
   Cube() {
     int index = 0;
@@ -20,7 +21,23 @@ class Cube {
     }
   }
 
-  ArrayList<Cubie> checkIfAllCorenrsAreSolved() {
+  ArrayList<Cubie> checkIfAllEdgesAreSolved() {
+    ArrayList<Cubie> notInPosition = new ArrayList<Cubie>();
+    for (int edge : this.edges) {
+      if(data[edge].x == data[edge].solvedPosition.x && data[edge].y == data[edge].solvedPosition.y && data[edge].z == data[edge].solvedPosition.z) {
+        if (data[edge].faces[0].facing == Facing.BACK && data[edge].faces[2].facing == Facing.DOWN) {
+          //its in his position
+        } else {
+          notInPosition.add(data[edge]);
+        }
+      } else {
+        notInPosition.add(data[edge]);
+      }
+    }
+    return notInPosition;
+  }
+
+  ArrayList<Cubie> checkIfAllCornersAreSolved() {
     ArrayList<Cubie> notInPosition = new ArrayList<Cubie>();
     for (int corner : this.corners) {
       if(data[corner].x == data[corner].solvedPosition.x && data[corner].y == data[corner].solvedPosition.y && data[corner].z == data[corner].solvedPosition.z) {

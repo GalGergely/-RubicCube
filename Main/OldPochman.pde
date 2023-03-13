@@ -7,9 +7,8 @@ public class OldPochman {
 
 
     public OldPochman (Cube cube, String moveList) {
-        println("Using old Pochman method...");
         this.cube = cube;
-        this.buffer = lookForBuffer();
+        this.buffer = lookForEdgeBuffer();
         this.moveList = moveList;
 
         json = loadJSONObject("pochmanTargetPosition.json");
@@ -35,7 +34,7 @@ public class OldPochman {
         }
     }
 
-    private int lookForBuffer() {
+    public int lookForEdgeBuffer() {
         for (Cubie cubie : cube.data) {
             if(cubie.x == 1 && cubie.y == -1 && cubie.z == 0) {
                 for (Face face : cubie.faces) {
@@ -48,7 +47,29 @@ public class OldPochman {
         return 1;
     }
 
-    private OldPochmanAlgorithm moveToTarget(int id) {
+    public int lookForCornerBuffer() {
+        for (Cubie cubie : cube.data) {
+            if(cubie.x == -1 && cubie.y == -1 && cubie.z == -1) {
+                for (Face face : cubie.faces) {
+                  if(face.facing == Facing.UP) {
+                    return face.id;
+                  }
+                }
+            }
+        }
+        return 1;
+    }
+
+    public boolean isItInAlgorithms(String id) {
+        for (OldPochmanAlgorithm algorithm : algorithms) {
+            if (algorithm.getName().equals(id)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public OldPochmanAlgorithm moveToTarget(int id) {
        OldPochmanAlgorithm algo = null;
         for (OldPochmanAlgorithm algorithm : algorithms) {
             if (algorithm.getName().equals(Integer.toString(id))) {
