@@ -1,10 +1,9 @@
 class Cube {
   Settings setting = new Settings();
   int dimension = setting.dimension;
-  Box[] data = new Box[dimension*dimension*dimension];
-  boolean shuffled = false;
-  String moveList = "";
+  public Cubie[] data = new Cubie[dimension*dimension*dimension];
   int facecounter=0;
+  int[] corners = {1,3,5,7,9,11,15,17,19,21,23,25};
 
   Cube() {
     int index = 0;
@@ -13,14 +12,28 @@ class Cube {
         for (int z=-1; z<=1; z++) {
           PMatrix3D matrix = new PMatrix3D();
           matrix.translate(x, y, z);
-          data[index] = new Box(matrix, x, y, z,facecounter);
+          data[index] = new Cubie(matrix, x, y, z, facecounter);
           facecounter+=6;
           index++;
         }
       }
-      data[2].high = true;
-      data[0].high = true;
     }
+  }
+
+  ArrayList<Cubie> checkIfAllCorenrsAreSolved() {
+    ArrayList<Cubie> notInPosition = new ArrayList<Cubie>();
+    for (int corner : this.corners) {
+      if(data[corner].x == data[corner].solvedPosition.x && data[corner].y == data[corner].solvedPosition.y && data[corner].z == data[corner].solvedPosition.z) {
+        if (data[corner].faces[0].facing == Facing.BACK && data[corner].faces[2].facing == Facing.DOWN) {
+          //its in his position
+        } else {
+          notInPosition.add(data[corner]);
+        }
+      } else {
+        notInPosition.add(data[corner]);
+      }
+    }
+    return notInPosition;
   }
 
   void turnX(int index, int dir) {
@@ -57,43 +70,23 @@ class Cube {
       }
     }
   }
-  
-  void doPerm(String[] perm) {
-  for(int i=0; i < perm.length; i++) {
-      print(perm[i]);
-      moveList += perm[i];
-    }
-  }
-  
-  String[] mirrorArray(String[] array) {
-    String[] returnarray = {};
-    for(int i=array.length-1; i>=0 ; i--) {
-      returnarray = append(returnarray, array[i]);
-    }
-    return returnarray;
-  }
-  
-  void shuffleCube(){
-  int rand = round(random(10, 20));
-  println(rand);
-  char moves[] = {'l','L','r','R','u','U','d','D','f','F','b','B'};
-  for(int i=0; i<rand; i++) {
-    int random = round(random(0, 11));
-    moveList += moves[random];
-  }
-}
-  
 
   void drawCube(Move move) {
     scale(50);
     for (int i=0; i<data.length; i++) {
       push();
-      if (abs(data[i].z)>0 && data[i].z == move.z) {
+      if (abs(data[i].z)==1 && data[i].z == move.z) {
         rotateZ(move.angle);
-      } else if (abs(data[i].x)>0 && data[i].x == move.x) {
+      } else if (abs(data[i].x)==1 && data[i].x == move.x) {
         rotateX(move.angle);
-      } else if (abs(data[i].y)>0 && data[i].y == move.y) {
+      } else if (abs(data[i].y)==1 && data[i].y == move.y) {
         rotateY(move.angle);
+      } else if (abs(data[i].z)==0 && data[i].z == abs(move.z)-2) {
+        rotateZ(move.angle);
+      } else if (abs(data[i].y)==0 && data[i].y == abs(move.y)-2) {
+        rotateY(move.angle);
+      } else if (abs(data[i].x)==0 && data[i].x == abs(move.x)-2) {
+        rotateX(move.angle);
       }
       data[i].show();
       pop();

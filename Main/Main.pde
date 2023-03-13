@@ -1,40 +1,34 @@
 import peasy.*;
 
-Cube cube;
 PeasyCam cam;
 Settings setting;
+AlgorithmCollection algorithm;
 Move move;
-
-Ai ai;
-boolean isTured = false;
-
+RubiksCubeLogic cube;
+boolean isTured;
+boolean animating = true;
 
 void setup() {
-size(600,600, P3D);
+size(600, 600, P3D);
 setting = new Settings();
-cube = new Cube();
 cam = new PeasyCam(this, setting.cameraZoomIn);
-move = new Move(0,0,0,0, cube);
+algorithm = new AlgorithmCollection();
+cube = new RubiksCubeLogic();
+move = new Move(0,0,0,0, cube.getCube());
+
 }
 
 void draw () {
-  
   move.update();
   background(setting.backgroundColor);
-  cube.drawCube(move);
-  //println(cube.data[7]);
+  cube.getCube().drawCube(move);
   if(cube.moveList != "") {
-    if(frameCount % 30 == 0) {
+    if(frameCount % 15 == 0) {
       isTured = true;
       DoStuff(cube.moveList.charAt(0));
       cube.moveList=cube.moveList.substring(1, cube.moveList.length());
     }
+  } else if(cube.solving) {
+    cube.solve();
   }
-  if(isTured && cube.moveList == ""){
-    cube.shuffled=true;
-    ai=new Ai(cube);
-    ai.solve();
-    isTured = false;
-  }
-  
 }
