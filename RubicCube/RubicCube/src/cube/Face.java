@@ -6,40 +6,40 @@ import settings.Facing;
 import settings.IdDisplay;
 
 public class Face {
-    private PApplet sketch;
+    private final PApplet sketch;
     private PVector normal;
-    private int c;
-    private int id;
-    private IdDisplay display;
+    private final int color;
+    private final int id;
+    private final IdDisplay display;
     private Facing facing;
 
-    public Face(PApplet sketch, PVector normal, int c, int id, Facing facing) {
+    public Face(PApplet sketch, PVector normal, int color, int id, Facing facing) {
         this.sketch = sketch;
         this.normal = normal;
-        this.c=c;
+        this.color = color;
         this.id = id;
         this.facing = facing;
         this.display = new IdDisplay(this.sketch, this.id);
     }
     public void turnX(float angle) {
         PVector v = new PVector();
-        v.y = PApplet.round(normal.y * this.sketch.cos(angle) - normal.z * this.sketch.sin(angle));
-        v.z = this.sketch.round(normal.y * this.sketch.sin(angle) - normal.z * this.sketch.cos(angle));
-        v.x = this.sketch.round(normal.x);
+        v.y = PApplet.round(normal.y * PApplet.cos(angle) - normal.z * PApplet.sin(angle));
+        v.z = PApplet.round(normal.y * PApplet.sin(angle) - normal.z * PApplet.cos(angle));
+        v.x = PApplet.round(normal.x);
         normal = v;
     }
     public void turnY(float angle) {
         PVector v = new PVector();
-        v.x = this.sketch.round(normal.x * this.sketch.cos(angle) - normal.z *this.sketch. sin(angle));
-        v.z = this.sketch.round(normal.x * this.sketch.sin(angle) - normal.z * this.sketch.cos(angle));
-        v.y = this.sketch.round(normal.y);
+        v.x = PApplet.round(normal.x * PApplet.cos(angle) - normal.z * PApplet.sin(angle));
+        v.z = PApplet.round(normal.x * PApplet.sin(angle) - normal.z * PApplet.cos(angle));
+        v.y = PApplet.round(normal.y);
         normal = v;
     }
     public void turnZ(float angle) {
         PVector v = new PVector();
-        v.x = this.sketch.round(normal.x * this.sketch.cos(angle) - normal.y * this.sketch.sin(angle));
-        v.y = this.sketch.round(normal.x * this.sketch.sin(angle) - normal.y * this.sketch.cos(angle));
-        v.z = this.sketch.round(normal.z);
+        v.x = PApplet.round(normal.x * PApplet.cos(angle) - normal.y * PApplet.sin(angle));
+        v.y = PApplet.round(normal.x * PApplet.sin(angle) - normal.y * PApplet.cos(angle));
+        v.z = PApplet.round(normal.z);
         normal = v;
     }
     public void rotateFacingX(int dir) {
@@ -116,12 +116,12 @@ public class Face {
 
     public void show() {
         this.sketch.pushMatrix();
-        this.sketch.fill(c);
+        this.sketch.fill(color);
         this.sketch.rectMode(this.sketch.CENTER);
         this.sketch.translate(0.5f*normal.x, 0.5f*normal.y, 0.5f*normal.z);
-        if (this.sketch.abs(normal.x) > 0) {
+        if (PApplet.abs(normal.x) > 0) {
             this.sketch.rotateY(this.sketch.HALF_PI);
-        } else if (this.sketch.abs(normal.y) > 0) {
+        } else if (PApplet.abs(normal.y) > 0) {
             this.sketch.rotateX(this.sketch.HALF_PI);
         }
         this.sketch.square(0, 0, 1);
@@ -129,27 +129,15 @@ public class Face {
         this.sketch.popMatrix();
     }
 
-    public PApplet getSketch() {
-        return sketch;
-    }
-
-    public PVector getNormal() {
-        return normal;
-    }
-
-    public int getC() {
-        return c;
-    }
-
     public int getId() {
         return id;
     }
 
-    public IdDisplay getDisplay() {
-        return display;
-    }
-
     public Facing getFacing() {
         return facing;
+    }
+
+    public PVector getNormal() {
+        return normal;
     }
 }

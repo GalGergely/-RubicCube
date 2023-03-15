@@ -1,8 +1,8 @@
 package algorithm;
 
 public class Algorithm {
-    private String name;
-    private String[] moves;
+    private final String name;
+    private final String[] moves;
 
     public Algorithm(String name, String[] moves) {
         this.name = name;

@@ -7,9 +7,9 @@ import processing.data.JSONObject;
 import java.util.ArrayList;
 
 public class AlgorithmCollection {
-    private PApplet sketch;
-    private ArrayList<Algorithm> algorithms = new ArrayList<Algorithm>();
-    private JSONObject json;
+    private final PApplet sketch;
+    private final ArrayList<Algorithm> algorithms = new ArrayList<>();
+    private final JSONObject json;
 
     public AlgorithmCollection(PApplet sketch) {
         this.sketch = sketch;
@@ -31,13 +31,12 @@ public class AlgorithmCollection {
             }
         }
         String[] bad_return  = {};
-        Algorithm al = new Algorithm("does not exist", bad_return);
-        return al;
+        return new Algorithm("does not exist", bad_return);
     }
 
     public void printAlgorithms() {
         for (Algorithm algorithm : algorithms) {
-            sketch.println(algorithm.getName() + ": " + sketch.join(algorithm.getMoves(), " "));
+            System.out.println(algorithm.getName() + ": " + PApplet.join(algorithm.getMoves(), " "));
         }
     }
 

@@ -3,7 +3,7 @@ package settings;
 import processing.core.PApplet;
 
 public class IdDisplay {
-    private PApplet sketch;
+    private final PApplet sketch;
     int id;
 
     public IdDisplay(PApplet sketch, int id) {

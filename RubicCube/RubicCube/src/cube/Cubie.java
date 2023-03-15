@@ -7,58 +7,56 @@ import settings.Facing;
 import settings.Settings;
 
 public class Cubie {
-    private PApplet sketch;
-    private Settings setting;
-    private PMatrix3D matrix;
-    private int x;
-    private int y;
-    private int z;
-    private Face[] faces = new Face[6];
+    private final PApplet sketch;
+    private final Settings setting;
+    private final PMatrix3D matrix;
 
-    private PVector solvedPosition;
+    private final PVector position;
+
+    private final Face[] faces = new Face[6];
+
+    private final PVector solvedPosition;
 
 
     public Cubie(PApplet sketch, PMatrix3D m, int x, int y, int z, int facecounter) {
         this.sketch = sketch;
         setting = new Settings();
+        position = new PVector(x,y,z);
         solvedPosition = new PVector(x,y,z);
         this.matrix=m;
-        this.x=x;
-        this.y=y;
-        this.z=z;
-        faces[0] = new Face(this.sketch, new PVector(0,0,-1), sketch.color(0,0,255), facecounter++, Facing.BACK);
-        faces[1] = new Face(this.sketch, new PVector(0,0,1), sketch.color(0,255,0), facecounter++, Facing.FRONT);
-        faces[2] = new Face(this.sketch, new PVector(0,1,0), sketch.color(255,255,255), facecounter++, Facing.DOWN);
-        faces[3] = new Face(this.sketch, new PVector(0,-1,0), sketch.color(255,255,0), facecounter++, Facing.UP);
-        faces[4] = new Face(this.sketch, new PVector(1,0,0), sketch.color(255,150,0) ,facecounter++, Facing.RIGHT);
-        faces[5] = new Face(this.sketch ,new PVector(-1,0,0), sketch.color(255,0,0) ,facecounter++, Facing.LEFT);
+        faces[0] = new Face(this.sketch, new PVector(0,0,-1), sketch.color(setting.blue.getR(),  setting.blue.getG(),  setting.blue.getB()),   facecounter++, Facing.BACK);
+        faces[1] = new Face(this.sketch, new PVector(0,0,1),  sketch.color(setting.green.getR(), setting.green.getG(), setting.green.getB()),  facecounter++, Facing.FRONT);
+        faces[2] = new Face(this.sketch, new PVector(0,1,0),  sketch.color(setting.white.getR(), setting.white.getG(), setting.white.getB()),  facecounter++, Facing.DOWN);
+        faces[3] = new Face(this.sketch, new PVector(0,-1,0), sketch.color(setting.yellow.getR(),setting.yellow.getG(),setting.yellow.getB()), facecounter++, Facing.UP);
+        faces[4] = new Face(this.sketch, new PVector(1,0,0),  sketch.color(setting.orange.getR(),setting.orange.getG(),setting.orange.getB()) ,facecounter++, Facing.RIGHT);
+        faces[5] = new Face(this.sketch ,new PVector(-1,0,0), sketch.color(setting.red.getR(),   setting.red.getG(),   setting.red.getB()) ,   facecounter++, Facing.LEFT);
 
     }
 
     public void turnFacesX(int dir) {
-        for(int i=0; i<faces.length; i++) {
-            faces[i].rotateFacingX(dir);
-            faces[i].turnX(dir*this.sketch.HALF_PI);
+        for (Face face : faces) {
+            face.rotateFacingX(dir);
+            face.turnX(dir * this.sketch.HALF_PI);
         }
     }
     public void turnFacesY(int dir) {
-        for(int i=0; i<faces.length; i++) {
-            faces[i].rotateFacingY(dir);
-            faces[i].turnY(dir*this.sketch.HALF_PI);
+        for (Face face : faces) {
+            face.rotateFacingY(dir);
+            face.turnY(dir * this.sketch.HALF_PI);
         }
     }
     public void turnFacesZ(int dir) {
-        for(int i=0; i<faces.length; i++) {
-            faces[i].rotateFacingZ(dir);
-            faces[i].turnZ(dir*this.sketch.HALF_PI);
+        for (Face face : faces) {
+            face.rotateFacingZ(dir);
+            face.turnZ(dir * this.sketch.HALF_PI);
         }
     }
     public void update(int x, int y, int z) {
         matrix.reset();
         matrix.translate(x,y,z);
-        this.x=x;
-        this.y=y;
-        this.z=z;
+        this.position.x = x;
+        this.position.y = y;
+        this.position.z = z;
     }
 
     public void show(){
@@ -69,46 +67,26 @@ public class Cubie {
         this.sketch.applyMatrix(matrix);
         //if(this.x == -1 && this.y == -1 && this.z == -1) {
         //} else {
-        for(int i=0; i<faces.length; i++) {
-            faces[i].show();
-            //}
+        for (Face face : faces) {
+            face.show();
         }
+        //}
         this.sketch.popMatrix();
     }
 
     public String toString() {
-        return "current:" + "x;" + x + " y:" + y + " :z" + z + "    solved: " + "x;" + solvedPosition.x + " y:" + solvedPosition.y + " :z" + solvedPosition.z+"\n";
+        return "current:" + "x;" + position.x + " y:" + position.y + " :z" + position.z + "    solved: " + "x;" + solvedPosition.x + " y:" + solvedPosition.y + " :z" + solvedPosition.z+"\n";
     }
     public String toStringWithId() {
-        String returnString = "current:" + "x;" + x + " y:" + y + " :z" + z + " ids:";
+        StringBuilder returnString = new StringBuilder("current:" + "x;" + position.x + " y:" + position.y + " :z" + position.z + " ids:");
         for(Face face : faces) {
-            returnString += face.getId();
+            returnString.append(face.getId());
         }
-        return returnString;
+        return returnString.toString();
     }
 
-    public PApplet getSketch() {
-        return sketch;
-    }
-
-    public Settings getSetting() {
-        return setting;
-    }
-
-    public PMatrix3D getMatrix() {
-        return matrix;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    public int getZ() {
-        return z;
+    public PVector getPosition() {
+        return position;
     }
 
     public Face[] getFaces() {
