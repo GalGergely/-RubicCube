@@ -15,16 +15,16 @@ public class Cube {
     int[] edges = {1,3,5,7,9,11,15,17,19,21,23,25};
     int[] corners = {0, 2, 6, 8, 18, 20, 24, 26};
 
-    public Cube(PApplet sketch) {
+    public Cube(PApplet sketch, Settings setting) {
+        this.setting = setting;
         this.sketch = sketch;
-        this.setting = new Settings();
         int index = 0;
         for (int x =-  1; x <=  1; x++) {
             for (int y =-  1; y <=  1; y++) {
                 for (int z =-  1; z <=  1; z++) {
                     PMatrix3D matrix = new PMatrix3D();
                     matrix.translate(x, y, z);
-                    data[index] = new Cubie(this.sketch, matrix, x, y, z, facecounter);
+                    data[index] = new Cubie(this.sketch, matrix, x, y, z, facecounter, this.setting);
                     facecounter += 6;
                     index++;
                 }

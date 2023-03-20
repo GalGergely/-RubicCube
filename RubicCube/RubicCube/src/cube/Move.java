@@ -26,7 +26,7 @@ public class Move {
     public void update() {
         if (this.animate) {
             this.angle += direction * 0.3f; //animacioval
-            //this.angle=HALF_PI*direction; //animvacio nelkul
+            //this.angle=this.sketch.HALF_PI*direction; //animvacio nelkul
             if (PApplet.abs(this.angle) >= this.sketch.HALF_PI) {
                 this.angle = 0;
                 this.animate = false;

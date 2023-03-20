@@ -7,10 +7,12 @@ import cube.Cubie;
 import cube.Face;
 import processing.core.PApplet;
 import settings.Facing;
+import settings.Settings;
 
 import java.util.ArrayList;
 
 public class RubiksCubeLogic  {
+    private final Settings setting;
     private PApplet sketch;
     public String moveList = "";
     private boolean solving = false;
@@ -22,10 +24,11 @@ public class RubiksCubeLogic  {
     private boolean edgesSolved = false;
     boolean isParityNeeded = true;
 
-    public RubiksCubeLogic(PApplet sketch) {
+    public RubiksCubeLogic(PApplet sketch, Settings setting) {
+        this.setting = setting;
         this.sketch = sketch;
         this.algorithmCollection = new AlgorithmCollection(sketch);
-        this.cube = new Cube(this.sketch);
+        this.cube = new Cube(this.sketch, this.setting);
         this.op = new OldPochmanCollection(this.sketch);
     }
 
