@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.Arrays;
 
 public class RGBInputPanel extends JPanel {
     private JTextField[] rgbFields;
@@ -15,6 +16,6 @@ public class RGBInputPanel extends JPanel {
     }
 
     public JTextField[] getRGBFields() {
-        return rgbFields;
+        return Arrays.copyOf(rgbFields, rgbFields.length);
     }
 }

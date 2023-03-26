@@ -1,17 +1,16 @@
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 
 import processing.core.PApplet;
-import processing.data.JSONObject;
 import settings.Settings;
 
 public class SimpleGUIApp {
 
-    private static Settings settings = Settings();
-
+    private static Settings settings = new Settings();
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
@@ -20,20 +19,6 @@ public class SimpleGUIApp {
             }
         });
     }
-
-    private static Settings loadSettingsFromFile(PApplet parent) {
-        File settingsFile = new File("settings.json");
-        try {
-            JSONObject json = parent.loadJSONObject(settingsFile.getAbsolutePath());
-            return new Settings(json);
-        } catch (Exception e) {
-            // Error loading settings file, use default settings
-            e.printStackTrace();
-        }
-    }
-
-
-
 
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("Simple GUI App");
@@ -105,6 +90,7 @@ public class SimpleGUIApp {
 
         String[] sides = {"Cube", "Top", "Left", "Right", "Bottom", "Front", "Back"};
         JTextField[][] rgbInputFields = new JTextField[sides.length][3];
+        JPanel[] colorDisplayPanels = new JPanel[sides.length];
         Color[] colors = {
                 settings.strokeColor,
                 settings.red,
@@ -131,12 +117,13 @@ public class SimpleGUIApp {
             RGBInputPanel inputPanel = new RGBInputPanel();
             rgbInputFields[i] = inputPanel.getRGBFields();
             setRGBValues(rgbInputFields[i], colors[i]);
+            updateColorListener(rgbInputFields[i], colorDisplayPanels, i);
             settingsPanel.add(inputPanel, constraints);
-
             constraints.gridx = 2;
             JPanel colorDisplayPanel = new JPanel();
             colorDisplayPanel.setPreferredSize(new Dimension(50, 25));
             colorDisplayPanel.setBackground(colors[i]);
+            colorDisplayPanels[i] = colorDisplayPanel;
             settingsPanel.add(colorDisplayPanel, constraints);
         }
 
@@ -146,19 +133,10 @@ public class SimpleGUIApp {
         saveButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                settings.strokeColor = getColorFromRGBFields(rgbInputFields[0]);
-                settings.red = getColorFromRGBFields(rgbInputFields[1]);
-                settings.orange = getColorFromRGBFields(rgbInputFields[2]);
-                settings.yellow = getColorFromRGBFields(rgbInputFields[3]);
-                settings.green = getColorFromRGBFields(rgbInputFields[4]);
-                settings.blue = getColorFromRGBFields(rgbInputFields[5]);
-                settings.white = getColorFromRGBFields(rgbInputFields[6]);
+                saveColorSettings(rgbInputFields);
                 settings.stepByStepSolving = stepByStepCheckBox.isSelected();
 
-                // Save the settings to the JSON file
-                PApplet applet = new PApplet();
-                JSONObject json = settings.toJSON();
-                applet.saveJSONObject(json, "settings.json");
+                settings.saveSettings();
             }
         });
         settingsPanel.add(saveButton, constraints);
@@ -168,19 +146,10 @@ public class SimpleGUIApp {
         saveAndQuitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                settings.strokeColor = getColorFromRGBFields(rgbInputFields[0]);
-                settings.red = getColorFromRGBFields(rgbInputFields[1]);
-                settings.orange = getColorFromRGBFields(rgbInputFields[2]);
-                settings.yellow = getColorFromRGBFields(rgbInputFields[3]);
-                settings.green = getColorFromRGBFields(rgbInputFields[4]);
-                settings.blue = getColorFromRGBFields(rgbInputFields[5]);
-                settings.white = getColorFromRGBFields(rgbInputFields[6]);
+                saveColorSettings(rgbInputFields);
                 settings.stepByStepSolving = stepByStepCheckBox.isSelected();
 
-                // Save the settings to the JSON file
-                PApplet applet = new PApplet();
-                JSONObject json = settings.toJSON();
-                applet.saveJSONObject(json, "settings.json");
+                settings.saveSettings();
 
                 settingsFrame.dispose(); // Close the settings window
             }
@@ -203,5 +172,44 @@ public class SimpleGUIApp {
         int g = Integer.parseInt(rgbFields[1].getText());
         int b = Integer.parseInt(rgbFields[2].getText());
         return new Color(r, g, b);
+    }
+
+    private static void saveColorSettings(JTextField[][] rgbInputFields) {
+        settings.strokeColor = getColorFromRGBFields(rgbInputFields[0]);
+        settings.red = getColorFromRGBFields(rgbInputFields[1]);
+        settings.orange = getColorFromRGBFields(rgbInputFields[2]);
+        settings.yellow = getColorFromRGBFields(rgbInputFields[3]);
+        settings.green = getColorFromRGBFields(rgbInputFields[4]);
+        settings.blue = getColorFromRGBFields(rgbInputFields[5]);
+        settings.white = getColorFromRGBFields(rgbInputFields[6]);
+    }
+
+    private static void updateColorListener(JTextField[] rgbFields, JPanel[] colorDisplayPanels, int index) {
+        DocumentListener dl = new DocumentListener() {
+            public void insertUpdate(DocumentEvent e) {
+                updateColor();
+            }
+
+            public void removeUpdate(DocumentEvent e) {
+                updateColor();
+            }
+
+            public void changedUpdate(DocumentEvent e) {
+                updateColor();
+            }
+
+            private void updateColor() {
+                try {
+                    Color newColor = getColorFromRGBFields(rgbFields);
+                    colorDisplayPanels[index].setBackground(newColor);
+                } catch (NumberFormatException e) {
+                    // Do nothing if the input is invalid
+                }
+            }
+        };
+
+        for (JTextField rgbField : rgbFields) {
+            rgbField.getDocument().addDocumentListener(dl);
+        }
     }
 }

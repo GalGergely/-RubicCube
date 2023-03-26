@@ -25,7 +25,7 @@ public class OldPochmanCollectionTest{
     }
     @Test
     public void isItInAlgorithms() {
-        OldPochmanCollection op = new OldPochmanCollection(this.fm);
+        OldPochmanCollection op = new OldPochmanCollection();
         assertTrue(op.isItInAlgorithms("44"));
         assertFalse(op.isItInAlgorithms("fejenforgosultrarotacio"));
     }

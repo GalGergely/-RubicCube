@@ -27,9 +27,9 @@ public class RubiksCubeLogic  {
     public RubiksCubeLogic(PApplet sketch, Settings setting) {
         this.setting = setting;
         this.sketch = sketch;
-        this.algorithmCollection = new AlgorithmCollection(sketch);
+        this.algorithmCollection = new AlgorithmCollection();
         this.cube = new Cube(this.sketch, this.setting);
-        this.op = new OldPochmanCollection(this.sketch);
+        this.op = new OldPochmanCollection();
     }
 
     public Cube getCube() {

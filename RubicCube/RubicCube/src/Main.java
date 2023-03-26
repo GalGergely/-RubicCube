@@ -18,9 +18,9 @@ public class Main extends PApplet {
     boolean isTured;
 
     public void setup() {
-        setting = loadSettingsFromFile("settings.json");
+        setting = new Settings();
         cam = new PeasyCam(this, setting.cameraZoomIn);
-        algorithm = new AlgorithmCollection(this);
+        algorithm = new AlgorithmCollection();
         cube = new RubiksCubeLogic(this, setting);
         move = new Move(this,0,0,0,0, cube.getCube());
 
@@ -50,12 +50,6 @@ public class Main extends PApplet {
                 DoStuff(key);
             }
         }
-    }
-
-    private static Settings loadSettingsFromFile(String filePath) {
-        PApplet applet = new PApplet();
-        JSONObject json = applet.loadJSONObject(filePath);
-        return new Settings(json);
     }
 
     public void DoStuff(char keys) {

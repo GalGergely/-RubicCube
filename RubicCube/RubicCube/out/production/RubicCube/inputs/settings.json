@@ -1,13 +1,41 @@
 {
-  "cameraZoomIn": 500,
+  "orange": [
+    239,
+    153,
+    104
+  ],
+  "red": [
+    211,
+    87,
+    87
+  ],
   "backgroundColor": 200,
-  "strokeColor": -16777216,
+  "green": [
+    121,
+    185,
+    119
+  ],
+  "blue": [
+    118,
+    145,
+    172
+  ],
+  "white": [
+    255,
+    255,
+    255
+  ],
+  "stepByStepSolving": false,
   "strokeWeight": 0.1,
-  "blue": -10442624,
-  "green": -8388353,
-  "white": -1,
-  "yellow": -14504856,
-  "orange": -3120496,
-  "red": -212997,
-  "stepByStepSolving": false
+  "yellow": [
+    238,
+    214,
+    128
+  ],
+  "cameraZoomIn": 500,
+  "strokeColor": [
+    0,
+    0,
+    0
+  ]
 }
