@@ -25,7 +25,7 @@ public class AlgorithmCollectionTest {
 
     @Test
     public void add() {
-        AlgorithmCollection ac = new AlgorithmCollection(this.fm);
+        AlgorithmCollection ac = new AlgorithmCollection();
         String[] str = {"l", "l"} ;
         ac.add("test1", str);
         Algorithm newAlgo = ac.getAlgorithm("test1");
@@ -35,7 +35,7 @@ public class AlgorithmCollectionTest {
 
     @Test
     public void delete() {
-        AlgorithmCollection ac = new AlgorithmCollection(this.fm);
+        AlgorithmCollection ac = new AlgorithmCollection();
         String[] str = {"l", "l"} ;
         ac.add("test1", str);
         ac.delete("test1");

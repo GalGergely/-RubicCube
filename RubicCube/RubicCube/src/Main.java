@@ -18,8 +18,9 @@ public class Main extends PApplet {
     boolean isTured;
 
     public void setup() {
+        setting = new Settings();
         cam = new PeasyCam(this, setting.cameraZoomIn);
-        algorithm = new AlgorithmCollection(this);
+        algorithm = new AlgorithmCollection();
         cube = new RubiksCubeLogic(this, setting);
         move = new Move(this,0,0,0,0, cube.getCube());
 
