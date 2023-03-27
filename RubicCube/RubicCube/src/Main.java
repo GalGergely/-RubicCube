@@ -11,14 +11,13 @@ import settings.*;
 
 public class Main extends PApplet {
     PeasyCam cam;
-    Settings setting;
+    Settings setting = new Settings();
     AlgorithmCollection algorithm;
     Move move;
     RubiksCubeLogic cube;
     boolean isTured;
 
     public void setup() {
-        setting = loadSettingsFromFile("settings.json");
         cam = new PeasyCam(this, setting.cameraZoomIn);
         algorithm = new AlgorithmCollection(this);
         cube = new RubiksCubeLogic(this, setting);
@@ -50,12 +49,6 @@ public class Main extends PApplet {
                 DoStuff(key);
             }
         }
-    }
-
-    private static Settings loadSettingsFromFile(String filePath) {
-        PApplet applet = new PApplet();
-        JSONObject json = applet.loadJSONObject(filePath);
-        return new Settings(json);
     }
 
     public void DoStuff(char keys) {

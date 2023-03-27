@@ -3,14 +3,16 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 import processing.core.PApplet;
 import processing.data.JSONObject;
 import settings.Settings;
 
 public class SimpleGUIApp {
 
-    private static Settings settings = Settings();
+    private static Settings settings = new Settings();
 
 
     public static void main(String[] args) {
@@ -20,20 +22,6 @@ public class SimpleGUIApp {
             }
         });
     }
-
-    private static Settings loadSettingsFromFile(PApplet parent) {
-        File settingsFile = new File("settings.json");
-        try {
-            JSONObject json = parent.loadJSONObject(settingsFile.getAbsolutePath());
-            return new Settings(json);
-        } catch (Exception e) {
-            // Error loading settings file, use default settings
-            e.printStackTrace();
-        }
-    }
-
-
-
 
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("Simple GUI App");
@@ -49,6 +37,7 @@ public class SimpleGUIApp {
         JButton playButton = new JButton("Play");
         JButton algorithmDataButton = new JButton("Algorithm Data");
         JButton settingsButton = new JButton("Settings");
+        JButton infoButton = new JButton("Info");
         JButton quitButton = new JButton("Quit");
 
         constraints.gridx = 0;
@@ -65,6 +54,10 @@ public class SimpleGUIApp {
 
         constraints.gridx = 0;
         constraints.gridy = 3;
+        mainPanel.add(infoButton, constraints);
+
+        constraints.gridx = 0;
+        constraints.gridy = 4;
         mainPanel.add(quitButton, constraints);
 
         playButton.addActionListener(new ActionListener() {
@@ -79,6 +72,17 @@ public class SimpleGUIApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 openSettingsWindow();
+            }
+        });
+
+        infoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Desktop.getDesktop().browse(new URI("https://www.google.com"));
+                } catch (IOException | URISyntaxException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
 
@@ -157,8 +161,6 @@ public class SimpleGUIApp {
 
                 // Save the settings to the JSON file
                 PApplet applet = new PApplet();
-                JSONObject json = settings.toJSON();
-                applet.saveJSONObject(json, "settings.json");
             }
         });
         settingsPanel.add(saveButton, constraints);
@@ -178,10 +180,6 @@ public class SimpleGUIApp {
                 settings.stepByStepSolving = stepByStepCheckBox.isSelected();
 
                 // Save the settings to the JSON file
-                PApplet applet = new PApplet();
-                JSONObject json = settings.toJSON();
-                applet.saveJSONObject(json, "settings.json");
-
                 settingsFrame.dispose(); // Close the settings window
             }
         });
