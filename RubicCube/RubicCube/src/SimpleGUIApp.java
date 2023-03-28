@@ -2,32 +2,26 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+
+import logger.*;
 import processing.core.PApplet;
 import settings.Settings;
 
 public class SimpleGUIApp {
 
-    private static Settings settings = new Settings();
+    private static final Settings settings = new Settings();
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
-            }
-        });
+        SwingUtilities.invokeLater(SimpleGUIApp::createAndShowGUI);
     }
 
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("Simple GUI App");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
-
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new GridBagLayout());
 
@@ -60,38 +54,31 @@ public class SimpleGUIApp {
         constraints.gridy = 4;
         mainPanel.add(quitButton, constraints);
 
-        playButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String[] appletArgs = new String[] { "Main" };
-                PApplet.main(appletArgs);
+        playButton.addActionListener(e -> {
+            LogWriter logWriter = new LogWriter();
+            LogReader logReader = new LogReader();
+            // Teszt logok
+            for (int i = 1; i <= 30; i++) {
+                logWriter.log("Log #" + i);
+            }
+            LogViewer logViewer = new LogViewer(logReader);
+            logViewer.start();
+            
+            String[] appletArgs = new String[] { "Main" };
+            PApplet.main(appletArgs);
+        });
+
+        settingsButton.addActionListener(e -> openSettingsWindow());
+
+        infoButton.addActionListener(e -> {
+            try {
+                Desktop.getDesktop().browse(new URI("https://www.google.com"));
+            } catch (IOException | URISyntaxException ex) {
+                ex.printStackTrace();
             }
         });
 
-        settingsButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                openSettingsWindow();
-            }
-        });
-
-        infoButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                try {
-                    Desktop.getDesktop().browse(new URI("https://www.google.com"));
-                } catch (IOException | URISyntaxException ex) {
-                    ex.printStackTrace();
-                }
-            }
-        });
-
-        quitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                System.exit(0);
-            }
-        });
+        quitButton.addActionListener(e -> System.exit(0));
 
         frame.getContentPane().add(mainPanel, BorderLayout.CENTER);
         frame.setLocationRelativeTo(null);
@@ -149,29 +136,23 @@ public class SimpleGUIApp {
         constraints.gridy = sides.length + 1;
         constraints.gridx = 1;
         JButton saveButton = new JButton("Save");
-        saveButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                saveColorSettings(rgbInputFields);
-                settings.stepByStepSolving = stepByStepCheckBox.isSelected();
+        saveButton.addActionListener(e -> {
+            saveColorSettings(rgbInputFields);
+            settings.stepByStepSolving = stepByStepCheckBox.isSelected();
 
-                settings.saveSettings();
-            }
+            settings.saveSettings();
         });
         settingsPanel.add(saveButton, constraints);
 
         constraints.gridx = 2;
         JButton saveAndQuitButton = new JButton("Save and Quit");
-        saveAndQuitButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                saveColorSettings(rgbInputFields);
-                settings.stepByStepSolving = stepByStepCheckBox.isSelected();
+        saveAndQuitButton.addActionListener(e -> {
+            saveColorSettings(rgbInputFields);
+            settings.stepByStepSolving = stepByStepCheckBox.isSelected();
 
-                settings.saveSettings();
+            settings.saveSettings();
 
-                settingsFrame.dispose(); // Close the settings window
-            }
+            settingsFrame.dispose(); // Close the settings window
         });
         settingsPanel.add(saveAndQuitButton, constraints);
 
