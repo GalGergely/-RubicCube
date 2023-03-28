@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.List;
 
 public class LogViewer {
@@ -11,25 +13,26 @@ public class LogViewer {
     private JFrame frame;
     private JTextArea textArea;
     private Timer timer;
+    public Thread thread;
 
     public LogViewer(LogReader logReader) {
         this.logReader = logReader;
+        this.frame = new JFrame("Log Viewer");
     }
 
     public void start() {
-        SwingUtilities.invokeLater(new Runnable() {
+        this.thread = new Thread (new Runnable() {
             @Override
             public void run() {
                 createAndShowGUI();
             }
         });
+        thread.run();
     }
 
     private void createAndShowGUI() {
-        frame = new JFrame("Log Viewer");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(600, 400);
-        frame.setResizable(false);
+        this.frame.setSize(600, 400);
+        this.frame.setResizable(false);
 
         textArea = new JTextArea();
         textArea.setEditable(false);
@@ -37,7 +40,7 @@ public class LogViewer {
         textArea.setWrapStyleWord(true);
 
         JScrollPane scrollPane = new JScrollPane(textArea);
-        frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
+        this.frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 
         timer = new Timer(1000, new ActionListener() {
             @Override
@@ -47,16 +50,20 @@ public class LogViewer {
         });
         timer.start();
 
-        frame.setVisible(true);
+        this.frame.setVisible(true);
     }
 
     private void refreshLogs() {
-        List<String> logs = logReader.getLastLogs(20);
+        List<String> logs = logReader.getLogs();
         StringBuilder sb = new StringBuilder();
         for (String log : logs) {
             sb.append(log);
             sb.append("\n");
         }
         textArea.setText(sb.toString());
+    }
+
+    public void setAlwaysOnTop(boolean b) {
+        this.frame.setAlwaysOnTop(b);
     }
 }

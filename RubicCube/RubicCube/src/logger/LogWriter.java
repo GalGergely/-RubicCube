@@ -4,7 +4,7 @@ import java.io.*;
 import java.nio.file.*;
 
 public class LogWriter {
-    private static final String LOG_FILE = "application.log";
+    private static final String LOG_FILE = "src/inputs/application.log";
 
     public void log(String message) {
         synchronized (LOG_FILE) {

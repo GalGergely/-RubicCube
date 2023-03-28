@@ -3,28 +3,21 @@ package logger;
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
-import java.util.concurrent.*;
-public class LogReader {
-    private static final String LOG_FILE = "application.log";
 
-    public List<String> getLastLogs(int numberOfLogs) {
+public class LogReader {
+    private static final String LOG_FILE = "src/inputs/application.log";
+    public List<String> getLogs() {
         synchronized (LOG_FILE) {
-            return readLastLogs(numberOfLogs);
+            return readLogs();
         }
     }
 
-    private List<String> readLastLogs(int numberOfLogs) {
+    private List<String> readLogs() {
         List<String> result = new ArrayList<>();
         try (BufferedReader reader = Files.newBufferedReader(Paths.get(LOG_FILE))) {
-            List<String> lines = new ArrayList<>();
             String line;
             while ((line = reader.readLine()) != null) {
-                lines.add(line);
-            }
-
-            int startIndex = Math.max(0, lines.size() - numberOfLogs);
-            for (int i = startIndex; i < lines.size(); i++) {
-                result.add(lines.get(i));
+                result.add(line);
             }
         } catch (IOException e) {
             e.printStackTrace();

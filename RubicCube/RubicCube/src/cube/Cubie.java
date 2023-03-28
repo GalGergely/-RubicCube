@@ -21,12 +21,12 @@ public class Cubie {
         position = new PVector(x,y,z);
         solvedPosition = new PVector(x,y,z);
         this.matrix=matrix;
-        faces[0] = new Face(this.sketch, new PVector(0,0,-1), sketch.color(setting.blue.getRed(),  setting.blue.getGreen(),  setting.blue.getBlue()),   facecounter++, Facing.BACK);
-        faces[1] = new Face(this.sketch, new PVector(0,0,1),  sketch.color(setting.green.getRed(), setting.green.getGreen(), setting.green.getBlue()),  facecounter++, Facing.FRONT);
-        faces[2] = new Face(this.sketch, new PVector(0,1,0),  sketch.color(setting.white.getRed(), setting.white.getGreen(), setting.white.getBlue()),  facecounter++, Facing.DOWN);
-        faces[3] = new Face(this.sketch, new PVector(0,-1,0), sketch.color(setting.yellow.getRed(),setting.yellow.getGreen(),setting.yellow.getBlue()), facecounter++, Facing.UP);
-        faces[4] = new Face(this.sketch, new PVector(1,0,0),  sketch.color(setting.orange.getRed(),setting.orange.getGreen(),setting.orange.getBlue()) ,facecounter++, Facing.RIGHT);
-        faces[5] = new Face(this.sketch ,new PVector(-1,0,0), sketch.color(setting.red.getRed(),   setting.red.getGreen(),   setting.red.getBlue()) ,   facecounter++, Facing.LEFT);
+        faces[0] = new Face(this.sketch, new PVector(0,0,-1), sketch.color(setting.blue.getRed(),  setting.blue.getGreen(),  setting.blue.getBlue()),   facecounter++, Facing.BACK, this.setting);
+        faces[1] = new Face(this.sketch, new PVector(0,0,1),  sketch.color(setting.green.getRed(), setting.green.getGreen(), setting.green.getBlue()),  facecounter++, Facing.FRONT, this.setting);
+        faces[2] = new Face(this.sketch, new PVector(0,1,0),  sketch.color(setting.white.getRed(), setting.white.getGreen(), setting.white.getBlue()),  facecounter++, Facing.DOWN, this.setting);
+        faces[3] = new Face(this.sketch, new PVector(0,-1,0), sketch.color(setting.yellow.getRed(),setting.yellow.getGreen(),setting.yellow.getBlue()), facecounter++, Facing.UP, this.setting);
+        faces[4] = new Face(this.sketch, new PVector(1,0,0),  sketch.color(setting.orange.getRed(),setting.orange.getGreen(),setting.orange.getBlue()) ,facecounter++, Facing.RIGHT, this.setting);
+        faces[5] = new Face(this.sketch ,new PVector(-1,0,0), sketch.color(setting.red.getRed(),   setting.red.getGreen(),   setting.red.getBlue()) ,   facecounter++, Facing.LEFT, this.setting);
 
     }
 

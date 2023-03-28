@@ -9,7 +9,11 @@
     87,
     87
   ],
-  "backgroundColor": 200,
+  "backgroundColor": [
+    155,
+    200,
+    200
+  ],
   "green": [
     121,
     185,
@@ -25,7 +29,7 @@
     255,
     255
   ],
-  "stepByStepSolving": false,
+  "stepByStepSolving": true,
   "strokeWeight": 0.1,
   "yellow": [
     238,
@@ -37,5 +41,6 @@
     0,
     0,
     0
-  ]
+  ],
+  "faceIdsCheckBox": true
 }

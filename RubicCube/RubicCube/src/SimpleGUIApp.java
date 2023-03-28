@@ -2,6 +2,8 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -10,9 +12,13 @@ import logger.*;
 import processing.core.PApplet;
 import settings.Settings;
 
+import static processing.core.PApplet.runSketch;
+
 public class SimpleGUIApp {
 
     private static final Settings settings = new Settings();
+    private static String[] appletArgs = new String[] { "Main" };
+    private static PApplet cube = new GergosCube();
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(SimpleGUIApp::createAndShowGUI);
@@ -54,31 +60,44 @@ public class SimpleGUIApp {
         constraints.gridy = 4;
         mainPanel.add(quitButton, constraints);
 
-        playButton.addActionListener(e -> {
-            LogWriter logWriter = new LogWriter();
-            LogReader logReader = new LogReader();
-            // Teszt logok
-            for (int i = 1; i <= 30; i++) {
-                logWriter.log("Log #" + i);
-            }
-            LogViewer logViewer = new LogViewer(logReader);
-            logViewer.start();
-            
-            String[] appletArgs = new String[] { "Main" };
-            PApplet.main(appletArgs);
-        });
+        playButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                LogReader logReader = new LogReader();
+                LogViewer logViewer = new LogViewer(logReader);
+                logViewer.start();
+                logViewer.setAlwaysOnTop(true);
 
-        settingsButton.addActionListener(e -> openSettingsWindow());
+                frame.setVisible(false);
 
-        infoButton.addActionListener(e -> {
-            try {
-                Desktop.getDesktop().browse(new URI("https://www.google.com"));
-            } catch (IOException | URISyntaxException ex) {
-                ex.printStackTrace();
+                runSketch(appletArgs, cube);
             }
         });
 
-        quitButton.addActionListener(e -> System.exit(0));
+        settingsButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                openSettingsWindow();
+            }
+        });
+
+        infoButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                try {
+                    Desktop.getDesktop().browse(new URI("C:/Egyetem/RubicCube/Webpage/index.html"));
+                } catch (IOException | URISyntaxException ex) {
+                    ex.printStackTrace();
+                }
+            }
+        });
+
+        quitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
 
         frame.getContentPane().add(mainPanel, BorderLayout.CENTER);
         frame.setLocationRelativeTo(null);
@@ -94,11 +113,12 @@ public class SimpleGUIApp {
         settingsPanel.setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
 
-        String[] sides = {"Cube", "Top", "Left", "Right", "Bottom", "Front", "Back"};
+        String[] sides = {"Cube", "Background", "Top", "Left", "Right", "Bottom", "Front", "Back"};
         JTextField[][] rgbInputFields = new JTextField[sides.length][3];
         JPanel[] colorDisplayPanels = new JPanel[sides.length];
         Color[] colors = {
                 settings.strokeColor,
+                settings.backgroundColor,
                 settings.red,
                 settings.orange,
                 settings.yellow,
@@ -113,6 +133,12 @@ public class SimpleGUIApp {
         stepByStepCheckBox.setSelected(settings.stepByStepSolving);
         settingsPanel.add(stepByStepCheckBox, constraints);
 
+        constraints.gridy = sides.length + 1;
+        constraints.gridx = 0;
+        JCheckBox faceIdsCheckBox = new JCheckBox("Show face ids");
+        faceIdsCheckBox.setSelected(settings.faceIdsCheckBox);
+        settingsPanel.add(faceIdsCheckBox, constraints);
+
         for (int i = 0; i < sides.length; i++) {
             constraints.gridy = i;
 
@@ -125,6 +151,7 @@ public class SimpleGUIApp {
             setRGBValues(rgbInputFields[i], colors[i]);
             updateColorListener(rgbInputFields[i], colorDisplayPanels, i);
             settingsPanel.add(inputPanel, constraints);
+
             constraints.gridx = 2;
             JPanel colorDisplayPanel = new JPanel();
             colorDisplayPanel.setPreferredSize(new Dimension(50, 25));
@@ -133,12 +160,13 @@ public class SimpleGUIApp {
             settingsPanel.add(colorDisplayPanel, constraints);
         }
 
-        constraints.gridy = sides.length + 1;
+        constraints.gridy = sides.length + 2;
         constraints.gridx = 1;
         JButton saveButton = new JButton("Save");
         saveButton.addActionListener(e -> {
             saveColorSettings(rgbInputFields);
             settings.stepByStepSolving = stepByStepCheckBox.isSelected();
+            settings.faceIdsCheckBox = faceIdsCheckBox.isSelected();
 
             settings.saveSettings();
         });
@@ -149,6 +177,7 @@ public class SimpleGUIApp {
         saveAndQuitButton.addActionListener(e -> {
             saveColorSettings(rgbInputFields);
             settings.stepByStepSolving = stepByStepCheckBox.isSelected();
+            settings.faceIdsCheckBox = faceIdsCheckBox.isSelected();
 
             settings.saveSettings();
 
@@ -176,12 +205,13 @@ public class SimpleGUIApp {
 
     private static void saveColorSettings(JTextField[][] rgbInputFields) {
         settings.strokeColor = getColorFromRGBFields(rgbInputFields[0]);
-        settings.red = getColorFromRGBFields(rgbInputFields[1]);
-        settings.orange = getColorFromRGBFields(rgbInputFields[2]);
-        settings.yellow = getColorFromRGBFields(rgbInputFields[3]);
-        settings.green = getColorFromRGBFields(rgbInputFields[4]);
-        settings.blue = getColorFromRGBFields(rgbInputFields[5]);
-        settings.white = getColorFromRGBFields(rgbInputFields[6]);
+        settings.backgroundColor = getColorFromRGBFields(rgbInputFields[1]);
+        settings.red = getColorFromRGBFields(rgbInputFields[2]);
+        settings.orange = getColorFromRGBFields(rgbInputFields[3]);
+        settings.yellow = getColorFromRGBFields(rgbInputFields[4]);
+        settings.green = getColorFromRGBFields(rgbInputFields[5]);
+        settings.blue = getColorFromRGBFields(rgbInputFields[6]);
+        settings.white = getColorFromRGBFields(rgbInputFields[7]);
     }
 
     private static void updateColorListener(JTextField[] rgbFields, JPanel[] colorDisplayPanels, int index) {

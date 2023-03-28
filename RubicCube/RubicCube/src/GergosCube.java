@@ -1,3 +1,4 @@
+import logger.LogWriter;
 import processing.core.*;
 
 import peasy.*;
@@ -6,29 +7,35 @@ import java.util.Objects;
 
 import algorithm.*;
 import cube.*;
-import processing.data.JSONObject;
 import settings.*;
 
-public class Main extends PApplet {
+
+public class GergosCube extends PApplet {
     PeasyCam cam;
     Settings setting = new Settings();
     AlgorithmCollection algorithm;
     Move move;
     RubiksCubeLogic cube;
     boolean isTured;
+    LogWriter logWriter;
 
     public void setup() {
         setting = new Settings();
         cam = new PeasyCam(this, setting.cameraZoomIn);
         algorithm = new AlgorithmCollection();
-        cube = new RubiksCubeLogic(this, setting);
+        logWriter = new LogWriter();
+        logWriter.clearLogs();
+        cube = new RubiksCubeLogic(this, setting, this.logWriter);
         move = new Move(this,0,0,0,0, cube.getCube());
-
+    }
+    @Override
+    public void exit() {
+        super.exit();
     }
 
     public void draw () {
         move.update();
-        background(setting.backgroundColor);
+        background(setting.backgroundColor.getRGB());
         cube.getCube().drawCube(move);
         if(!Objects.equals(cube.moveList, "")) {
             if(frameCount % 15 == 0) {
@@ -141,14 +148,7 @@ public class Main extends PApplet {
             }
         }
     }
-    public void settings() { size(600, 600, P3D); }
-
-    static public void main(String[] passedArgs) {
-        String[] appletArgs = new String[] { "Main" };
-        if (passedArgs != null) {
-            PApplet.main(concat(appletArgs, passedArgs));
-        } else {
-            PApplet.main(appletArgs);
-        }
+    public void settings() {
+        size(600, 600, P3D);
     }
 }

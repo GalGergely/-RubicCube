@@ -29,7 +29,7 @@
     255,
     255
   ],
-  "stepByStepSolving": true,
+  "stepByStepSolving": false,
   "strokeWeight": 0.1,
   "yellow": [
     238,
@@ -42,5 +42,5 @@
     0,
     0
   ],
-  "faceIdsCheckBox": true
+  "faceIdsCheckBox": false
 }

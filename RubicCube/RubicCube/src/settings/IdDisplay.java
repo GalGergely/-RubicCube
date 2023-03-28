@@ -12,6 +12,7 @@ public class IdDisplay {
     }
 
     public void show() {
+        this.sketch.textSize(15);
         this.sketch.fill(0);
         this.sketch.scale(0.02f);
         this.sketch.text(id, 0 , 0 , 1 );

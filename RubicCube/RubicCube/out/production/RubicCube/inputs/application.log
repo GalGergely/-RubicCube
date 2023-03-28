@@ -1,0 +1,23 @@
+Shuffle is 11 moves long.
+buffer id: 154 || setup: Dm || algorithm: jperm || redo setup: Md
+buffer id: 69 || setup:  || algorithm: jperm || redo setup: 
+buffer id: 47 || setup: dm || algorithm: jperm || redo setup: MD
+buffer id: 130 || setup: wdl || algorithm: tperm || redo setup: LDW
+edges are not done, breaking the plugging.
+buffer id: 9 || setup:  || algorithm: tperm || redo setup: 
+buffer id: 57 || setup:  || algorithm: lperm || redo setup: 
+buffer id: 139 || setup: wdwdl || algorithm: tperm || redo setup: LDWDW
+buffer id: 35 || setup: WDl || algorithm: tperm || redo setup: Ldw
+buffer id: 92 || setup: dll || algorithm: tperm || redo setup: LLD
+buffer id: 23 || setup: wdL || algorithm: tperm || redo setup: lDW
+buffer id: 11 || setup: lldm || algorithm: jperm || redo setup: MDLL
+edges are done, it took 11 moves.
+Parity is needed
+buffer id: 121 || setup: rrD || algorithm: yperm || redo setup: dRR
+buffer id: 17 || setup: ff || algorithm: yperm || redo setup: FF
+buffer id: 108 || setup: Rf || algorithm: yperm || redo setup: Fr
+buffer id: 144 || setup: D || algorithm: yperm || redo setup: d
+buffer id: 160 || setup:  || algorithm: yperm || redo setup: 
+buffer id: 49 || setup: d || algorithm: yperm || redo setup: D
+buffer id: 41 || setup: dd || algorithm: yperm || redo setup: DD
+corners are done, it took 18 moves.

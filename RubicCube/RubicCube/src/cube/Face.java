@@ -4,6 +4,7 @@ import processing.core.PApplet;
 import processing.core.PVector;
 import settings.Facing;
 import settings.IdDisplay;
+import settings.Settings;
 
 public class Face {
     private final PApplet sketch;
@@ -12,8 +13,10 @@ public class Face {
     private final int id;
     private final IdDisplay display;
     private Facing facing;
+    private Settings setting;
 
-    public Face(PApplet sketch, PVector normal, int color, int id, Facing facing) {
+    public Face(PApplet sketch, PVector normal, int color, int id, Facing facing, Settings setting) {
+        this.setting = setting;
         this.sketch = sketch;
         this.normal = normal;
         this.color = color;
@@ -125,7 +128,9 @@ public class Face {
             this.sketch.rotateX(this.sketch.HALF_PI);
         }
         this.sketch.square(0, 0, 1);
-        this.display.show();
+        if (this.setting.faceIdsCheckBox) {
+            this.display.show();
+        }
         this.sketch.popMatrix();
     }
 

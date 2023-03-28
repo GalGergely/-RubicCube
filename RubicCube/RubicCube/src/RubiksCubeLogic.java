@@ -5,6 +5,7 @@ import algorithm.OldPochmanAlgorithm;
 import cube.Cube;
 import cube.Cubie;
 import cube.Face;
+import logger.LogWriter;
 import processing.core.PApplet;
 import settings.Facing;
 import settings.Settings;
@@ -12,6 +13,7 @@ import settings.Settings;
 import java.util.ArrayList;
 
 public class RubiksCubeLogic  {
+    private final LogWriter logWriter;
     private final Settings setting;
     private PApplet sketch;
     public String moveList = "";
@@ -24,7 +26,8 @@ public class RubiksCubeLogic  {
     private boolean edgesSolved = false;
     boolean isParityNeeded = true;
 
-    public RubiksCubeLogic(PApplet sketch, Settings setting) {
+    public RubiksCubeLogic(PApplet sketch, Settings setting, LogWriter logWriter) {
+        this.logWriter = logWriter;
         this.setting = setting;
         this.sketch = sketch;
         this.algorithmCollection = new AlgorithmCollection();
@@ -38,7 +41,7 @@ public class RubiksCubeLogic  {
 
     public void shuffleCube() {
         int rand = PApplet.round(this.sketch.random(10, 20));
-        System.out.println("Shuffle is " + rand + " moves long.");
+        this.logWriter.log("Shuffle is " + rand + " moves long.");
         char[] moves = {'l','L','r','R','u','U','d','D','f','F','b','B'};
         for (int i = 0; i < rand; i++) {
             int random = PApplet.round(this.sketch.random(0, 11));
@@ -79,24 +82,30 @@ public class RubiksCubeLogic  {
         if (this.edgesSolved) {
             if (moveCounter % 2 ==  1 && isParityNeeded) {
                 this.moveList += "ruRFruuRuuRfruruuRU";
+                this.logWriter.log("Parity is needed");
                 isParityNeeded = false;
             }
             int id = this.lookForCornerBuffer();
             if (id != 3 && id != 5 && id != 0) {
                 SolveOnePiece(id);
-                //this.solving = false;  //minden lepes utan megallas
+                if (this.setting.stepByStepSolving) {
+                    this.sketch.fill(0); // Set the text color to black
+                    this.sketch.textSize(32); // Set the text size
+                    this.sketch.text("Hello, World!", 50, 50); // Display the text at position (50, 50)
+                    this.solving = false;
+                }
             } else {
                 ArrayList<Cubie> notInPosition = this.cube.checkIfAllCornersAreSolved();
                 if (notInPosition.size() > 0) {
                     this.animationTimer++;
                 } else {
                     this.animationTimer = 0;
-                    System.out.println("corners are done, it took " + Integer.toString(moveCounter) + " moves.");
+                    this.logWriter.log("corners are done, it took " + Integer.toString(moveCounter) + " moves.");
                     this.solving = false;
                 }
                 if (this.animationTimer >= 100) {
                     this.animationTimer = 0;
-                    System.out.println("corners are not done, breaking the plugging.");
+                    this.logWriter.log("corners are not done, breaking the plugging.");
                     boolean checkForFlippedBuffer = breakPlugging(notInPosition.get(0));
                     if (!checkForFlippedBuffer) {
                         breakPlugging(notInPosition.get(1));
@@ -108,18 +117,23 @@ public class RubiksCubeLogic  {
             int id = this.lookForEdgeBuffer();
             if (id != 117 && id != 118) {
                 SolveOnePiece(id);
-                //this.solving = false;  //minden lepes utan megallas
+                if (this.setting.stepByStepSolving) {
+                    this.sketch.fill(0); // Set the text color to black
+                    this.sketch.textSize(32); // Set the text size
+                    this.sketch.text("Hello, World!", 50, 50); // Display the text at position (50, 50)
+                    this.solving = false;
+                }
             } else {
                 ArrayList<Cubie> notInPosition = this.cube.checkIfAllEdgesAreSolved();
                 if (notInPosition.size() > 0) {
                     this.animationTimer++;
                 } else {
-                    System.out.println("edges are done, it took " + Integer.toString(moveCounter) + " moves.");
+                    this.logWriter.log("edges are done, it took " + Integer.toString(moveCounter) + " moves.");
                     this.edgesSolved = true;
                     this.animationTimer = 0;
                 }
                 if (this.animationTimer >= 100) {
-                    System.out.println("edges are not done, breaking the plugging.");
+                    this.logWriter.log("edges are not done, breaking the plugging.");
                     boolean checkForFlippedBuffer = breakPlugging(notInPosition.get(0));
                     if (!checkForFlippedBuffer) {
                         breakPlugging(notInPosition.get(1));
@@ -196,7 +210,7 @@ public class RubiksCubeLogic  {
     }
 
     private void logMove(String id, String setup, String algorithm, String redo) {
-        System.out.println("buffer id: " + id + " || setup: " + setup + " || algorithm: " + algorithm + " || redo setup: " + redo);
+        this.logWriter.log("buffer id: " + id + " || setup: " + setup + " || algorithm: " + algorithm + " || redo setup: " + redo);
     }
 
     public boolean isSolving() {

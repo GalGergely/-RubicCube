@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class Settings {
     public int cameraZoomIn;
-    public int backgroundColor;
+    public Color backgroundColor;
     public Color strokeColor;
     public float strokeWeight;
     public Color blue;
@@ -23,6 +23,7 @@ public class Settings {
     public Color orange;
     public Color red;
     public boolean stepByStepSolving;
+    public boolean faceIdsCheckBox;
 
     public Settings() {
         String filePath = "src/inputs/settings.json";
@@ -31,7 +32,7 @@ public class Settings {
             Map<String, Object> settingsMap = gson.fromJson(fileReader, Map.class);
 
             cameraZoomIn = ((Number) settingsMap.get("cameraZoomIn")).intValue();
-            backgroundColor = ((Number) settingsMap.get("backgroundColor")).intValue();
+            backgroundColor = getColorFromList((List<Number>) settingsMap.get("backgroundColor"));;
             strokeColor = getColorFromList((List<Number>) settingsMap.get("strokeColor"));
             strokeWeight = ((Number) settingsMap.get("strokeWeight")).floatValue();
             blue = getColorFromList((List<Number>) settingsMap.get("blue"));
@@ -41,6 +42,7 @@ public class Settings {
             orange = getColorFromList((List<Number>) settingsMap.get("orange"));
             red = getColorFromList((List<Number>) settingsMap.get("red"));
             stepByStepSolving = (Boolean) settingsMap.get("stepByStepSolving");
+            faceIdsCheckBox = (Boolean) settingsMap.get("faceIdsCheckBox");
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -54,7 +56,7 @@ public class Settings {
 
             Map<String, Object> settingsMap = new HashMap<>();
             settingsMap.put("cameraZoomIn", cameraZoomIn);
-            settingsMap.put("backgroundColor", backgroundColor);
+            settingsMap.put("backgroundColor", getColorList(backgroundColor));
             settingsMap.put("strokeColor", getColorList(strokeColor));
             settingsMap.put("strokeWeight", strokeWeight);
             settingsMap.put("blue", getColorList(blue));
@@ -64,6 +66,7 @@ public class Settings {
             settingsMap.put("orange", getColorList(orange));
             settingsMap.put("red", getColorList(red));
             settingsMap.put("stepByStepSolving", stepByStepSolving);
+            settingsMap.put("faceIdsCheckBox", faceIdsCheckBox);
 
             gson.toJson(settingsMap, fileWriter);
 
