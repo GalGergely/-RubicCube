@@ -1,3 +1,7 @@
+/**
+ * OldPochmanCollection class provides functionality to manage a collection of Old Pochman algorithms.
+ * The algorithms are stored in a JSON file which is read upon object initialization.
+ */
 package algorithm;
 
 import com.google.gson.Gson;
@@ -11,11 +15,16 @@ import java.util.Map;
 
 public class OldPochmanCollection {
     private final ArrayList<OldPochmanAlgorithm> algorithms = new ArrayList<>();
-    private final String filePath = "src/inputs/pochmanTargetPosition.json";
 
+    /**
+     * Constructor for the OldPochmanCollection class.
+     * Initializes the collection of OldPochmanAlgorithm objects from the JSON file specified by the filePath.
+     */
     public OldPochmanCollection() {
+        String filePath = "src/inputs/pochmanTargetPosition.json";
         try (FileReader fileReader = new FileReader(filePath)) {
-            Type type = new TypeToken<Map<String, ArrayList<Object>>>() {}.getType();
+            Type type = new TypeToken<Map<String, ArrayList<Object>>>() {
+            }.getType();
             Map<String, ArrayList<Object>> pochmanMap = new Gson().fromJson(fileReader, type);
 
             pochmanMap.forEach((key, value) -> {
@@ -29,15 +38,29 @@ public class OldPochmanCollection {
         }
     }
 
-    public void printAlgorithms() {
-        algorithms.forEach(a -> System.out.println(a.getName() + " " + String.join(" ", a.getSetup()) + " " + a.getAlgorithmName()));
-    }
-
+    /**
+     * Checks if an algorithm with the specified ID exists in the collection.
+     *
+     * @param id The ID of the algorithm to check.
+     * @return true if the algorithm exists, false otherwise.
+     */
     public boolean isItInAlgorithms(String id) {
         return algorithms.stream().anyMatch(a -> a.getName().equals(id));
     }
 
+    /**
+     * Returns the list of Old Pochman algorithms.
+     *
+     * @return An ArrayList of OldPochmanAlgorithm objects.
+     */
     public ArrayList<OldPochmanAlgorithm> getAlgorithms() {
         return algorithms;
+    }
+
+    /**
+     * Prints the list of Old Pochman algorithms to the console.
+     */
+    public void printAlgorithms() {
+        algorithms.forEach(a -> System.out.println(a.getName() + " " + String.join(" ", a.getSetup()) + " " + a.getAlgorithmName()));
     }
 }

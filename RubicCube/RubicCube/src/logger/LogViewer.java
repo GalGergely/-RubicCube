@@ -1,3 +1,7 @@
+/**
+ * Represents a LogViewer that displays logs from a LogReader.
+ * Provides methods to create and show a graphical user interface (GUI) to display logs.
+ */
 package logger;
 
 import javax.swing.*;
@@ -15,13 +19,17 @@ public class LogViewer {
     private Timer timer;
     public Thread thread;
 
+
     public LogViewer(LogReader logReader) {
         this.logReader = logReader;
         this.frame = new JFrame("Log Viewer");
     }
 
+    /**
+     * Starts the LogViewer by creating and displaying the GUI.
+     */
     public void start() {
-        this.thread = new Thread (new Runnable() {
+        this.thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 createAndShowGUI();
@@ -30,6 +38,9 @@ public class LogViewer {
         thread.run();
     }
 
+    /**
+     * Creates and shows the GUI for the LogViewer.
+     */
     private void createAndShowGUI() {
         this.frame.setSize(600, 400);
         this.frame.setResizable(false);
@@ -53,6 +64,9 @@ public class LogViewer {
         this.frame.setVisible(true);
     }
 
+    /**
+     * Refreshes the logs displayed in the GUI.
+     */
     private void refreshLogs() {
         List<String> logs = logReader.getLogs();
         StringBuilder sb = new StringBuilder();
@@ -63,6 +77,11 @@ public class LogViewer {
         textArea.setText(sb.toString());
     }
 
+    /**
+     * Sets the LogViewer's frame to always be on top.
+     *
+     * @param b A boolean indicating if the frame should always be on top.
+     */
     public void setAlwaysOnTop(boolean b) {
         this.frame.setAlwaysOnTop(b);
     }

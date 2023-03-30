@@ -1,3 +1,6 @@
+/**
+ * Settings is a class responsible for managing the application settings, including loading and saving them to a JSON file.
+ */
 package settings;
 
 import com.google.gson.Gson;
@@ -25,6 +28,9 @@ public class Settings {
     public boolean stepByStepSolving;
     public boolean faceIdsCheckBox;
 
+    /**
+     * Constructor for the Settings class. Loads settings from a JSON file.
+     */
     public Settings() {
         String filePath = "src/inputs/settings.json";
         try (FileReader fileReader = new FileReader(filePath)) {
@@ -49,6 +55,9 @@ public class Settings {
         }
     }
 
+    /**
+     * Saves the current settings to a JSON file.
+     */
     public void saveSettings() {
         String filePath = "src/inputs/settings.json";
         try (FileWriter fileWriter = new FileWriter(filePath)) {
@@ -75,10 +84,22 @@ public class Settings {
         }
     }
 
+    /**
+     * Returns a list of integers representing the RGB values of the specified color.
+     *
+     * @param color Color object to convert to a list of integers.
+     * @return List of integers representing the RGB values of the color.
+     */
     private List<Integer> getColorList(Color color) {
         return List.of(color.getRed(), color.getGreen(), color.getBlue());
     }
 
+    /**
+     * Constructs a Color object from a list of numbers representing the RGB values.
+     *
+     * @param colorList List of numbers representing the RGB values.
+     * @return Color object constructed from the specified list of numbers.
+     */
     private Color getColorFromList(List<Number> colorList) {
         return new Color(colorList.get(0).intValue(), colorList.get(1).intValue(), colorList.get(2).intValue());
     }

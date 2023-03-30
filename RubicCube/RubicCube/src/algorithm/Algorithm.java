@@ -9,6 +9,11 @@ public class Algorithm {
         this.moves = moves;
     }
 
-    public String getName() { return name; }
-    public String[] getMoves() { return moves; }
+    public String getName() {
+        return name;
+    }
+
+    public String[] getMoves() {
+        return moves;
+    }
 }

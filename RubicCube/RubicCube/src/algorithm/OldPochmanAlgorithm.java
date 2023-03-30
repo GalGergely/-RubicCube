@@ -13,9 +13,17 @@ public class OldPochmanAlgorithm {
         this.algorithmName = algorithmName;
     }
 
-    public String getName() { return name; }
-    public String[] getSetup() { return setup; }
-    public String getAlgorithmName() { return algorithmName; }
+    public String getName() {
+        return name;
+    }
+
+    public String[] getSetup() {
+        return setup;
+    }
+
+    public String getAlgorithmName() {
+        return algorithmName;
+    }
 
     public String toString() {
         return "OldPochmanAlgorithm{name='" + name + '\'' + ", setup=" + Arrays.toString(setup) + ", algorithm='" + algorithmName + '\'' + '}';
