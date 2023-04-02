@@ -47,7 +47,7 @@ public class AlgorithmCube extends PApplet {
         logWriter = new LogWriter();
         logWriter.clearLogs();
         this.cube = new Cube(this, setting);
-        move = new Move(this, new PVector(0,0,0), 0, cube);
+        move = new Move(this, new PVector(0, 0, 0), 0, cube);
         moveList = "";
         toDoMoveList = String.join("", new AlgorithmCollection().getAlgorithm(desiredAlgorithm).getMoves());
         logWriter.log("You have to do the following:");
@@ -70,10 +70,11 @@ public class AlgorithmCube extends PApplet {
         move.update();
         background(setting.backgroundColor.getRGB());
         cube.drawCube(move);
-        if (!Objects.equals(moveList, "")) {
-            if (frameCount % 15 == 0) {
+        if (frameCount % 15 == 0) {
+            if (!Objects.equals(moveList, "")) {
                 if (moveList.charAt(0) == toDoMoveList.charAt(0)) {
                     move = KeyBindings.doMove(moveList.charAt(0), move, cube, this);
+                    assert move != null;
                     move.start();
                     moveList = moveList.substring(1);
                     toDoMoveList = toDoMoveList.substring(1);
@@ -83,10 +84,10 @@ public class AlgorithmCube extends PApplet {
                     this.moveList = "";
                     this.toDoMoveList = String.join("", new AlgorithmCollection().getAlgorithm(desiredAlgorithm).getMoves());
                 }
+            } else if (Objects.equals(toDoMoveList, "")) {
+                logWriter.log("You did it!");
+                toDoMoveList = String.join("", new AlgorithmCollection().getAlgorithm(desiredAlgorithm).getMoves());
             }
-        } else if (Objects.equals(toDoMoveList, "")) {
-            logWriter.log("You did it!");
-            toDoMoveList = String.join("", new AlgorithmCollection().getAlgorithm(desiredAlgorithm).getMoves());
         }
     }
 

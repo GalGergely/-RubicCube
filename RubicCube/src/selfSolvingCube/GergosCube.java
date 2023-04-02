@@ -54,13 +54,14 @@ public class GergosCube extends PApplet {
         move.update();
         background(setting.backgroundColor.getRGB());
         cube.getCube().drawCube(move);
-        if (!Objects.equals(cube.moveList, "")) {
-            if (frameCount % 15 == 0) {
+        if (frameCount % 15 == 0) {
+            if (!Objects.equals(cube.moveList, "")) {
+
                 specialKeyBindings(cube.moveList.charAt(0));
                 cube.moveList = cube.moveList.substring(1);
+            } else if (cube.isSolving()) {
+                cube.solve();
             }
-        } else if (cube.isSolving()) {
-            cube.solve();
         }
     }
 
@@ -70,7 +71,7 @@ public class GergosCube extends PApplet {
     public void keyPressed() {
         if (!move.isAnimate()) {
             if (key == 'm' || key == 'M' || key == 'w' || key == 'W') {
-                println("if you want the ai solve this move is illegal");
+                logWriter.log("If you want the cube to solve itself, this move is illegal. Redo it if needed.");
             }
             this.cube.moveList += str(key);
         }

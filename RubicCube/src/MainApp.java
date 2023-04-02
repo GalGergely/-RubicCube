@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -37,6 +38,8 @@ public class MainApp {
      * @param args command-line arguments passed to the main method.
      */
     public static void main(String[] args) {
+        String libPath = System.getProperty("user.dir") + File.separator + "lib";
+        System.setProperty("java.library.path", libPath);
         SwingUtilities.invokeLater(MainApp::createAndShowGUI);
     }
 

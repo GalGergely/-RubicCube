@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="RubicCube:jar" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="14ddce28-8366-414e-9b72-0420f22b9046" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/RubicCube_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Main.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/core.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/fenster.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/gluegen-rt.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/gluegen_rt.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/gson-2.8.9.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jogl-all.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jogl_desktop.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jogl_mobile.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/nativewindow_awt.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/nativewindow_win32.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/newt_head.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/peasy-math.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/peasycam.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/cubeAssets/CubeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/cubeAssets/FakeMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/out/Main$Algorithm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/out/Main$AlgorithmCollection.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/out/Main$Cube.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/out/Main$Cubie.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/out/Main$Face.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/out/Main$Facing.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/out/Main$IdDisplay.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/out/Main$Move.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/out/Main$OldPochman.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/out/Main$OldPochmanAlgorithm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/out/Main$RubiksCubeLogic.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/out/Main$Settings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/out/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/out/source/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/Main.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/inputs/algorithms.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/lib/Main.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/lib/core.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/lib/fenster.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/lib/gluegen-rt.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/lib/gluegen_rt.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/lib/gson-2.8.9.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/lib/jogl-all.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/lib/jogl_desktop.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/lib/jogl_mobile.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/lib/nativewindow_awt.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/lib/nativewindow_win32.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/lib/newt_head.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/lib/peasy-math.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/lib/peasycam.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/source/Algorithm.pde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/source/AlgorithmCollection.pde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/source/Cube.pde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/source/Cubie.pde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/source/Face.pde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/source/Facing.pde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/source/IdDisplay.pde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/source/KeyBinds.pde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/source/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/source/Main.pde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/source/Move.pde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/source/OldPochman.pde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/source/OldPochmanAlgorithm.pde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/source/RubiksCubeLogic.pde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProcessingSketch/windows-amd64/source/Settings.pde" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RubicCube.iml" beforeDir="false" afterPath="$PROJECT_DIR$/RubicCube.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/MainApp$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/MainApp$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/MainApp$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/MainApp$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/MainApp$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/MainApp$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/MainApp$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/MainApp$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/MainApp$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/MainApp$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/MainApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/MainApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/algorithmCube/AlgorithmCube.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/algorithmCube/AlgorithmCube.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/inputs/algorithms.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/inputs/algorithms.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/inputs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/inputs/application.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/selfSolvingCube/GergosCube.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/selfSolvingCube/GergosCube.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/selfSolvingCube/RubiksCubeLogic.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/selfSolvingCube/RubiksCubeLogic.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/RubicCube/algorithm/AlgorithmCollectionTest$FakeMain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/RubicCube/algorithm/AlgorithmCollectionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/RubicCube/algorithm/AlgorithmCollectionTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/RubicCube/algorithm/OldPochmanCollectionTest$FakeMain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/RubicCube/algorithm/OldPochmanCollectionTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/RubicCube/algorithm/OldPochmanCollectionTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/algorithmCube/AlgorithmCube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/algorithmCube/AlgorithmCube.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputs/algorithms.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/algorithms.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/inputs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/application.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfSolvingCube/GergosCube.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfSolvingCube/GergosCube.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/selfSolvingCube/RubiksCubeLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/selfSolvingCube/RubiksCubeLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/algorithm/AlgorithmCollectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/algorithm/AlgorithmCollectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/algorithm/OldPochmanCollectionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/algorithm/OldPochmanCollectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cubeAssets/CubieTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cubeAssets/CubieTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cubeAssets/FaceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cubeAssets/FaceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webpage/assets/img/avataaars.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webpage/assets/img/portfolio/submarine.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Webpage/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Webpage/index.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit4 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2NrroaMr19arh5WgMWm4oVXAvh1" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
+    "last_opened_file_path": "C:/Egyetem/RubicCube/RubicCube/lib",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="cubeAssets" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="selfSolvingCube" />
+      <recent name="cubeAssets" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.MainApp">
+    <configuration name="MainApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="MainApp" />
+      <module name="RubicCube" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="All in RubicCube" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RubicCube" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CubeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RubicCube" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cubeAssets.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cubeAssets" />
+      <option name="MAIN_CLASS_NAME" value="cubeAssets.CubeTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CubeTest.turnZ" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RubicCube" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cubeAssets.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="cubeAssets" />
+      <option name="MAIN_CLASS_NAME" value="cubeAssets.CubeTest" />
+      <option name="METHOD_NAME" value="turnZ" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RubiksCubeLogicTest.shuffleCube" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RubicCube" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="selfSolvingCube.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="selfSolvingCube" />
+      <option name="MAIN_CLASS_NAME" value="selfSolvingCube.RubiksCubeLogicTest" />
+      <option name="METHOD_NAME" value="shuffleCube" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MainApp" />
+        <item itemvalue="JUnit.All in RubicCube" />
+        <item itemvalue="JUnit.RubiksCubeLogicTest.shuffleCube" />
+        <item itemvalue="JUnit.CubeTest" />
+        <item itemvalue="JUnit.CubeTest.turnZ" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="14ddce28-8366-414e-9b72-0420f22b9046" name="Changes" comment="" />
+      <created>1680433217962</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680433217962</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>

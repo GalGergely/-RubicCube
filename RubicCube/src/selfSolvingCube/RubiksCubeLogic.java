@@ -29,7 +29,6 @@ public class RubiksCubeLogic  {
     private final Cube cube;
     private final AlgorithmCollection algorithmCollection;
     private final OldPochmanCollection op;
-    private int animationTimer = 0;
     private int moveCounter = 0;
     private boolean edgesSolved = false;
     private boolean isParityNeeded = true;
@@ -114,20 +113,14 @@ public class RubiksCubeLogic  {
             } else {
                 ArrayList<Cubie> notInPosition = this.cube.checkIfAllCornersAreSolved();
                 if (notInPosition.size() > 0) {
-                    this.animationTimer++;
-                } else {
-                    this.animationTimer = 0;
-                    this.logWriter.log("corners are done, it took " + Integer.toString(moveCounter) + " moves.");
-                    this.solving = false;
-                }
-                if (this.animationTimer >= 100) {
-                    this.animationTimer = 0;
                     this.logWriter.log("corners are not done, breaking the plugging.");
                     boolean checkForFlippedBuffer = breakPlugging(notInPosition.get(0));
                     if (!checkForFlippedBuffer) {
                         breakPlugging(notInPosition.get(1));
                     }
-
+                } else {
+                    this.logWriter.log("corners are done, it took " + Integer.toString(moveCounter) + " moves.");
+                    this.solving = false;
                 }
             }
         } else {
@@ -140,19 +133,14 @@ public class RubiksCubeLogic  {
             } else {
                 ArrayList<Cubie> notInPosition = this.cube.checkIfAllEdgesAreSolved();
                 if (notInPosition.size() > 0) {
-                    this.animationTimer++;
-                } else {
-                    this.logWriter.log("edges are done, it took " + Integer.toString(moveCounter) + " moves.");
-                    this.edgesSolved = true;
-                    this.animationTimer = 0;
-                }
-                if (this.animationTimer >= 100) {
                     this.logWriter.log("edges are not done, breaking the plugging.");
                     boolean checkForFlippedBuffer = breakPlugging(notInPosition.get(0));
                     if (!checkForFlippedBuffer) {
                         breakPlugging(notInPosition.get(1));
                     }
-                    this.animationTimer = 0;
+                } else {
+                    this.logWriter.log("edges are done, it took " + Integer.toString(moveCounter) + " moves.");
+                    this.edgesSolved = true;
                 }
             }
         }

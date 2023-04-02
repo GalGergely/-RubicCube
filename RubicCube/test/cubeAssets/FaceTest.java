@@ -8,23 +8,17 @@ import settings.Facing;
 import settings.Settings;
 
 import static org.junit.Assert.*;
+import static processing.core.PApplet.runSketch;
 
 public class FaceTest {
     FakeMain fm;
     Settings setting = new Settings();
+    String[] appletArgs = new String[]{"Gergos Cube"};
 
-    public class FakeMain extends PApplet {
-        String path;
-
-        public void setup() {
-            path = sketchPath();
-        }
-    }
     @Before
     public void init(){
         this.fm = new FakeMain();
-        this.fm.setup();
-
+        runSketch(appletArgs, this.fm);
     }
 
     @Test
