@@ -56,7 +56,6 @@ public class GergosCube extends PApplet {
         cube.getCube().drawCube(move);
         if (frameCount % 15 == 0) {
             if (!Objects.equals(cube.moveList, "")) {
-
                 specialKeyBindings(cube.moveList.charAt(0));
                 cube.moveList = cube.moveList.substring(1);
             } else if (cube.isSolving()) {
@@ -87,9 +86,13 @@ public class GergosCube extends PApplet {
                 case ' ' -> cube.shuffleCube();
                 case 's' -> cube.setSolving(true);
                 default -> {
+                    Move oldMove = move;
                     move = KeyBindings.doMove(keys, move, cube.getCube(), this);
-                    assert move != null;
-                    move.start();
+                    if(move != null) {
+                        move.start();
+                    } else {
+                        move = oldMove;
+                    }
                 }
             }
         }

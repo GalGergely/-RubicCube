@@ -62,6 +62,12 @@ public class MainApp {
         JButton infoButton = new JButton("Info");
         JButton quitButton = new JButton("Quit");
 
+        playButton.setPreferredSize(new Dimension(150, playButton.getPreferredSize().height));
+        algorithmDataButton.setPreferredSize(new Dimension(150, algorithmDataButton.getPreferredSize().height));
+        settingsButton.setPreferredSize(new Dimension(150, settingsButton.getPreferredSize().height));
+        infoButton.setPreferredSize(new Dimension(150, infoButton.getPreferredSize().height));
+        quitButton.setPreferredSize(new Dimension(150, quitButton.getPreferredSize().height));
+
         constraints.gridx = 0;
         constraints.gridy = 0;
         mainPanel.add(playButton, constraints);
@@ -99,8 +105,7 @@ public class MainApp {
         algorithmDataButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                AlgorithmApp app = new AlgorithmApp();
-                frame.setVisible(false);
+                AlgorithmApp app = new AlgorithmApp(frame);
             }
         });
 

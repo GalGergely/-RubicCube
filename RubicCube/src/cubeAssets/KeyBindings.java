@@ -10,15 +10,15 @@ import processing.core.PVector;
 public class KeyBindings {
     /**
      * Executes a cube move based on the key pressed.
-     * @param keys Character representing the key pressed.
+     * @param key Character representing the key pressed.
      * @param move Move object representing the current move state.
      * @param cube Cube object representing the current cube state.
      * @param sketch PApplet object representing the sketch window.
      * @return Move object representing the updated move state.
      */
-    public static Move doMove(char keys, Move move, Cube cube, PApplet sketch) {
+    public static Move doMove(char key, Move move, Cube cube, PApplet sketch) {
         if (!move.isAnimate()) {
-            switch (keys) {
+            switch (key) {
                 case 'm' -> {
                     return new Move(sketch, new PVector(2,0,0), 1, cube);
                 }

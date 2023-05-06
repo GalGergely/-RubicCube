@@ -34,16 +34,15 @@ public class AlgorithmApp extends JFrame {
     /**
      * Constructor for the AlgorithmApp class.
      */
-    public AlgorithmApp() {
-        SwingUtilities.invokeLater(AlgorithmApp::createAndShowGUI);
+    public AlgorithmApp(JFrame menuFrame) {
+        createAndShowGUI(menuFrame);
     }
 
     /**
      * Creates and displays the main GUI for the AlgorithmApp.
      */
-    private static void createAndShowGUI() {
+    private static void createAndShowGUI(JFrame parentFrame) {
         JFrame frame = new JFrame("Algorithm Mode");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500, 300);
 
         JLayeredPane layeredPane = new JLayeredPane();
@@ -167,6 +166,7 @@ public class AlgorithmApp extends JFrame {
                         logViewer.setAlwaysOnTop(true);
 
                         frame.setVisible(false);
+                        parentFrame.setVisible(false);
 
                         runSketch(appletArgs, cube);
                         System.out.println(selectedAlgorithm);
@@ -223,13 +223,6 @@ public class AlgorithmApp extends JFrame {
                 frame.repaint();
             }
         });
-        try {
-            BufferedImage backgroundImage = ImageIO.read(Objects.requireNonNull(AlgorithmApp.class.getResource("/inputs/background.png")));
-            BackgroundPanel backgroundPanel = new BackgroundPanel(backgroundImage);
-            frame.setContentPane(backgroundPanel);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
     }
