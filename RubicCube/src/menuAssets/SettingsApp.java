@@ -8,6 +8,7 @@ import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
+import java.util.Objects;
 
 import settings.Settings;
 
@@ -24,6 +25,8 @@ public class SettingsApp {
      */
     public void openSettingsWindow() {
         JFrame settingsFrame = new JFrame("Settings");
+        ImageIcon logo = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("inputs/icon.png")));
+        settingsFrame.setIconImage(logo.getImage());
         settingsFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         settingsFrame.setSize(600, 400);
 
@@ -47,21 +50,36 @@ public class SettingsApp {
 
         constraints.gridy = sides.length;
         constraints.gridx = 0;
-        JCheckBox stepByStepCheckBox = new JCheckBox("Step by step solving");
+        constraints.anchor = GridBagConstraints.LINE_START;
+
+        JLabel stepByStepLabel = new JLabel("Step by step solving");
+        settingsPanel.add(stepByStepLabel, constraints);
+
+        constraints.gridx = 1;
+        JCheckBox stepByStepCheckBox = new JCheckBox("");
         stepByStepCheckBox.setSelected(settings.stepByStepSolving);
         settingsPanel.add(stepByStepCheckBox, constraints);
 
         constraints.gridy = sides.length + 1;
         constraints.gridx = 0;
-        JCheckBox faceIdsCheckBox = new JCheckBox("Show face ids");
+        constraints.anchor = GridBagConstraints.LINE_START;
+
+        JLabel faceIdsLabel = new JLabel("Show face ids");
+        settingsPanel.add(faceIdsLabel, constraints);
+
+        constraints.gridx = 1;
+        JCheckBox faceIdsCheckBox = new JCheckBox("");
         faceIdsCheckBox.setSelected(settings.faceIdsCheckBox);
         settingsPanel.add(faceIdsCheckBox, constraints);
 
+
         for (int i = 0; i < sides.length; i++) {
             constraints.gridy = i;
-
             constraints.gridx = 0;
-            settingsPanel.add(new JLabel(sides[i] + " Color"), constraints);
+            constraints.anchor = GridBagConstraints.WEST;
+            JPanel labelPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+            labelPanel.add(new JLabel(sides[i] + " Color"));
+            settingsPanel.add(labelPanel, constraints);
 
             constraints.gridx = 1;
             RGBInputPanel inputPanel = new RGBInputPanel();

@@ -13,6 +13,7 @@
         <!-- Google fonts-->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
         <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
@@ -27,7 +28,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">User Manual</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#manual">User Manual</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
                     </ul>
                 </div>
@@ -47,11 +48,33 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Masthead Subheading-->
-                <p class="masthead-subheading font-weight-light mb-0">A Self solving Rubik's Cube!</p>
+                <p class="masthead-subheading font-weight-light mb-0">A Self-Solving Rubik's Cube!</p>
             </div>
         </header>
+        <!-- Details Section -->
+        <section class="page-section bg-white text-secondary mb-0" id="custom">
+            <div class="container">
+                <!-- Details Section Heading -->
+                <h2 class="page-section-heading text-center text-uppercase text-secondary">Project Details</h2>
+                <!-- Icon Divider -->
+                <div class="divider-custom divider-dark">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Details Section Content -->
+                <div class="row">
+                    <div class="ms-auto" style="text-align: center;">
+                        <p class="lead">The objective of my thesis was to create a Rubik's Cube that could assist users in learning how to solve it blindfolded. The motivation behind the project was to develop a tool as a hobby that combines entertainment and learning while enhancing logical thinking and problem-solving skills.</p>
+                        <p class="lead">During the development process, I gained a wealth of fundamental knowledge about the algorithms and solving methods underlying the Rubik's Cube. One of the main goals of the project was to expand my own capabilities and knowledge while creating a tool that could help those who wish to explore the world of Rubik's Cube.</p>
+                        <p class="lead">Overall, this project was a personal developmental journey that taught me perseverance, creativity, and the notion that learning and fun can go hand in hand. The creation of the application not only reflects my growth in knowledge and skills but also provides inspiration for others who want to learn and create new things as a hobby.</p>
+                        <p class="lead">With this project, my aim is for both complete beginners and players already capable of solving the Rubik's Cube to learn how blindfolded solving works within the world of Rubik's Cube. This program was of interest to me because I had never actually managed to learn this solution. Therefore, I approached the task with the perspective and enthusiasm of an experienced cuber, yet with a layman's view.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="portfolio">
+        <section class="page-section portfolio" id="manual">
             <div class="container">
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">User Manual</h2>
@@ -138,9 +161,16 @@
                 </div>
                 <!-- About Section Button-->
                 <div class="text-center mt-4">
-                    <a class="btn btn-xl btn-outline-light" target="_blank" href="https://drive.google.com/file/d/1iVTFuiOmPxCmadLLGrerTQKbhe5WyRyd/view?usp=share_link" download>
+                    <a class="btn btn-xl btn-outline-light" target="_blank" href="https://drive.google.com/file/d/17SbK39ERkk3JEb8XDMV4sRXGpUJZ_EdC/view?usp=share_link" download>
                         <i class="fas fa-download me-2"></i>
                         Free Download!
+                    </a>
+                </div>
+                <!-- About Section Button-->
+                <div class="text-center mt-4">
+                    <a class="btn btn-xl btn-outline-light" href="https://github.com/GalGergely/RubicCube">
+                        <i class="bi bi-github"></i>
+                        Check out the code!
                     </a>
                 </div>
             </div>
@@ -170,7 +200,10 @@
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/moves.png" alt="..." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">Due to specific programming requirements, it was necessary to replace the conventional Rubik's Cube moves with unique, specialized ones. In order to accommodate this change, we have compiled a comprehensive table outlining the various moves and their corresponding equivalents.</p>
+                                    <p class="mb-4">If you are unfamiliar with the fundamental nomenclature of the Rubik's Cube, including the abbreviations for rotation names, we recommend reading the subsequent paragraph. Otherwise, you may proceed to the next section.</p>
+                                    <p class="mb-4">The letters designate the movement of the corresponding side of the cube. For instance, rotating the left side is denoted as L. To indicate a reverse rotation, the notation L' is used. This system allows cubers to create concise, easily understood, and universally applicable algorithms.</p>
+                                    <p class="mb-4">F: Front, B: Back, L: Left, R: Right, U: Top/Up, D: Bottom/Down</p>
+                                    <p class="mb-4">If Due to specific programming requirements, it was essential to substitute the traditional Rubik's Cube moves with unique, specialized ones. To address this adaptation, we have assembled a detailed table that presents the various moves and their corresponding equivalents.</p>
                                     <div class="container">
                                         <table class="table table-bordered">
                                           <thead>
@@ -264,110 +297,136 @@
                                     <!-- Portfolio Modal - Text-->
                                     <div class="container">
                                         <h2>Edge Setups</h2>
-                                        <p class="mb-4">The program implements integers instead of characters. To associate a number with a character, refer to the 'pochmanTargetPosition.json' file for guidance.</p>
+                                        <p class="mb-4">To accomplish blindfolded cube-solving, it is necessary to assign a unique identifier to each sticker on the cube and recall them later. Typically, people use letters to create words and subsequently form sentences with those words to facilitate memorization. For instance, if the initial letter is "A" and the subsequent one is "L," one might form the word "almost." By remembering the sentence containing these words, the cube can be solved.</p>
+                                        <p class="mb-4">The program employs integers rather than characters for this purpose. To facilitate conversion, a reference table is provided. However, it is crucial to note that the cube orientation within the program differs from the conventional one. In this case, the yellow side corresponds to the white, the green and blue sides remain unchanged, but the red and orange sides are also flipped.</p>
                                         <table class="table table-bordered">
                                           <thead>
                                             <tr style="background-color: #99DAE2;">
                                                 <th>Setup</th>
+                                                <th>ID</th>
                                                 <th>Algorithm</th>
                                             </tr>
                                           </thead>
                                           <tbody>
                                             <tr>
                                                 <td>A</td>
-                                                <td>buffer</td>
+                                                <td>57</td>
+                                                <td>Buffer</td>
                                             </tr>
                                             <tr>
                                                 <td>B</td>
+                                                <td>117</td>
                                                 <td>R D'</td>
                                             </tr>
                                             <tr>
                                                 <td>C</td>
+                                                <td>69</td>
                                                 <td>F</td>
                                             </tr>
                                             <tr>
                                                 <td>D</td>
+                                                <td>9</td>
                                                 <td>F R'</td>
                                             </tr>
                                             <tr>
                                                 <td>E</td>
+                                                <td>67</td>
                                                 <td>F' D</td>
                                             </tr>
                                             <tr>
                                                 <td>F</td>
+                                                <td>139</td>
                                                 <td>R2' D'</td>
                                             </tr>
                                             <tr>
                                                 <td>G</td>
+                                                <td>103</td>
                                                 <td>R F</td>
                                             </tr>
                                             <tr>
                                                 <td>H</td>
+                                                <td>31</td>
                                                 <td>D</td>
                                             </tr>
                                             <tr>
                                                 <td>I</td>
+                                                <td>118</td>
                                                 <td>R'</td>
                                             </tr>
                                             <tr>
                                                 <td>J</td>
+                                                <td>130</td>
                                                 <td>R2</td>
                                             </tr>
                                             <tr>
                                                 <td>K</td>
+                                                <td>154</td>
                                                 <td>R</td>
                                             </tr>
                                             <tr>
                                                 <td>L</td>
+                                                <td>142</td>
                                                 <td>-</td>
                                             </tr>
                                             <tr>
                                                 <td>M</td>
+                                                <td>54</td>
                                                 <td>R' F</td>
                                     
                                             </tr>
                                             <tr>
                                                 <td>N</td>
-                                                <td>buffer</td>
+                                                <td>18</td>
+                                                <td>Buffer</td>
                                             </tr>
                                             <tr>
                                                 <td>O</td>
+                                                <td>90</td>
                                                 <td>D' R</td>
                                             </tr>
                                             <tr>
                                                 <td>P</td>
+                                                <td>126</td>
                                                 <td>D'</td>
                                             </tr>
                                             <tr>
                                                 <td>Q</td>
-                                                <td>buffer</td>
+                                                <td>11</td>
+                                                <td>Buffer</td>
                                             </tr>
                                             <tr>
                                                 <td>R</td>
+                                                <td>35</td>
                                                 <td>F2</td>
                                             </tr>
                                             <tr>
                                                 <td>S</td>
+                                                <td>47</td>
                                                 <td>D2 R</td>
                                             </tr>
                                             <tr>
                                                 <td>T</td>
+                                                <td>23</td>
                                                 <td>D2</td>
                                             </tr>
                                             <tr>
                                                 <td>U</td>
+                                                <td>104</td>
                                                 <td>F'</td>
                                             </tr>
                                             <tr>
                                                 <td>V</td>
+                                                <td>152</td>
                                                 <td>D' F'</td>
                                             </tr>
                                             <tr>
                                                 <td>W</td>
+                                                <td>92</td>
                                                 <td>D2 F'</td>
                                             </tr>
                                             <tr>
                                                 <td>Z</td>
+                                                <td>44</td>
                                                 <td>D F'</td>
                                             </tr>
                                           </tbody>
@@ -406,109 +465,136 @@
                                     <!-- Portfolio Modal - Text-->
                                     <div class="container">
                                         <h2>Corner Setups</h2>
-                                        <p class="mb-4">The program implements integers instead of characters. To associate a number with a character, refer to the 'pochmanTargetPosition.json' file for guidance.</p>
+                                        <p class="mb-4">To accomplish blindfolded cube-solving, it is necessary to assign a unique identifier to each sticker on the cube and recall them later. Typically, people use letters to create words and subsequently form sentences with those words to facilitate memorization. For instance, if the initial letter is "A" and the subsequent one is "L," one might form the word "almost." By remembering the sentence containing these words, the cube can be solved.</p>
+                                        <p class="mb-4">The program employs integers rather than characters for this purpose. To facilitate conversion, a reference table is provided. However, it is crucial to note that the cube orientation within the program differs from the conventional one. In this case, the yellow side corresponds to the white, the green and blue sides remain unchanged, but the red and orange sides are also flipped.</p>
+                                        <p class="mb-4">It is highly recommended that you become proficient in solving the edges before progressing to this portion of the procedure. During the transition between solving the edges and corners, a unique situation known as "parity" may arise. The parity algorithm is supplied by the program and can also be found in the necessary algorithms menu. Parity occurs when the edges have been solved using an odd number of moves.</p>
                                         <table class="table table-bordered">
                                           <thead>
                                             <tr style="background-color: #99DAE2;">
                                                 <th>Setup</th>
+                                                <th>ID</th>
                                                 <th>Algorithm</th>
                                             </tr>
                                           </thead>
                                           <tbody>
                                             <tr>
                                                 <td>A</td>
+                                                <td>3</td>
                                                 <td>L perm</td>
                                             </tr>
                                             <tr>
                                                 <td>B</td>
-                                                <td>Ide nem lehet cserélni mert ez a buffer</td>
+                                                <td>111</td>
+                                                <td>Buffer</td>
                                             </tr>
                                             <tr>
                                                 <td>C</td>
+                                                <td>123</td>
                                                 <td>J perm</td>
                                             </tr>
                                             <tr>
                                                 <td>D</td>
+                                                <td>15</td>
                                                 <td>T perm</td>
                                             </tr>
                                             <tr>
                                                 <td>E</td>
+                                                <td>13</td>
                                                 <td>M L perm</td>
                                             </tr>
                                             <tr>
                                                 <td>F</td>
+                                                <td>121</td>
                                                 <td>Dw2 L T perm</td>
                                             </tr>
                                             <tr>
                                                 <td>G</td>
+                                                <td>157</td>
                                                 <td>M J perm</td>
                                             </tr>
                                             <tr>
                                                 <td>H</td>
+                                                <td>49</td>
                                                 <td>L' T perm</td>
                                             </tr>
                                             <tr>
                                                 <td>I</td>
-                                                <td>Ide nem lehet cserélni mert ez a buffer
+                                                <td>124</td>
+                                                <td>Buffer
                                         </tr>
                                         <tr>
                                             <td>J</td>
+                                            <td>112</td>
                                             <td>Dw L T perm</td>
                                         </tr>
                                         <tr>
                                             <td>K</td>
+                                            <td>148</td>
                                             <td>D' M J perm</td>
                                         </tr>
                                         <tr>
                                             <td>L</td>
+                                            <td>160</td>
                                             <td>Dw' L' T perm</td>
                                         </tr>
                                         <tr>
                                             <td>M</td>
+                                            <td>108</td>
                                             <td>M' J perm</td>
                                         </tr>
                                         <tr>
                                             <td>N</td>
+                                            <td>0</td>
                                             <td>L T perm</td>
                                         </tr>
                                         <tr>
                                             <td>O</td>
+                                            <td>36</td>
                                             <td>M' L perm</td>
                                         </tr>
                                         <tr>
                                             <td>P</td>
+                                            <td>144</td>
                                             <td>Dw2 L' T perm</td>
                                         </tr>
                                         <tr>
                                             <td>Q</td>
+                                            <td>5</td>
                                             <td>L2 D M' J perm</td>
                                         </tr>
                                         <tr>
                                             <td>R</td>
+                                            <td>17</td>
                                             <td>Dw' L T perm</td>
                                         </tr>
                                         <tr>
                                             <td>S</td>
+                                            <td>53</td>
                                             <td>D M J perm</td>
                                         </tr>
                                         <tr>
                                             <td>T</td>
+                                            <td>41</td>
                                             <td>Dw L' T perm</td>
                                         </tr>
                                         <tr>
                                             <td>U</td>
+                                            <td>50</td>
                                             <td>D' L2 T perm</td>
                                         </tr>
                                         <tr>
                                             <td>V</td>
+                                            <td>158</td>
                                             <td>D2 L2 T perm</td>
                                         </tr>
                                         <tr>
                                             <td>W</td>
+                                            <td>146</td>
                                             <td>D L2 T perm</td>
                                         </tr>
                                         <tr>
                                             <td>Z</td>
+                                            <td>38</td>
                                             <td>L2 T perm</td>
                                         </tr>
                                           </tbody>
@@ -545,7 +631,7 @@
                                     <!-- Portfolio Modal - Image-->
                                     <img class="img-fluid rounded mb-5" src="assets/img/portfolio/game.png" alt="..." />
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-4">The primary goal of this website is not to provide a tutorial on how to solve the cube with this method. For a comprehensive tutorial, please refer to <a href="https://www.youtube.com/watch?v=uNN03qisIFE" target="_blank">this</a> video.</p>
+                                    <p class="mb-4">The primary objective of this webpage is not to teach the theoretical foundations of this method, but rather to facilitate the practical learning process. Numerous high-quality instructional materials can be found on the internet, particularly on YouTube, which offer a more visual approach than the descriptions I can provide.</p>
                                     <p class="mb-4">To solve a Rubik's cube, knowing four essential algorithms/permutations is crucial. </p>
                                     <div class="container">
                                         <table class="table table-bordered">
@@ -596,7 +682,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked Safe</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Key Bindings</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -628,67 +714,67 @@
                                             </tr>
                                             <tr>
                                               <td>r</td>
-                                              <td>Right side of the cube, clockwhise</td>
+                                              <td>Right side of the cube, clockwise</td>
                                             </tr>
                                             <tr>
                                                 <td>R</td>
-                                                <td>Right side of the cube, counter clockwhise</td>
+                                                <td>Right side of the cube, counter clockwise</td>
                                             </tr>
                                             <tr>
                                               <td>l</td>
-                                              <td>Right side of the cube, clockwhise</td>
+                                              <td>Right side of the cube, clockwise</td>
                                             </tr>
                                             <tr>
                                                 <td>L</td>
-                                                <td>Left side of the cube, counter clockwhise</td>
+                                                <td>Left side of the cube, counter clockwise</td>
                                             </tr>
                                             <tr>
                                               <td>f</td>
-                                              <td>Front side of the cube, clockwhise</td>
+                                              <td>Front side of the cube, clockwise</td>
                                             </tr>
                                             <tr>
                                                 <td>F</td>
-                                                <td>Front side of the cube, counter clockwhise</td>
+                                                <td>Front side of the cube, counter clockwise</td>
                                             </tr>
                                             <tr>
                                                 <td>b</td>
-                                                <td>Back side of the cube, clockwhise</td>
+                                                <td>Back side of the cube, clockwise</td>
                                             </tr>
                                             <tr>
                                                 <td>B</td>
-                                                <td>Back side of the cube, counter clockwhise</td>
+                                                <td>Back side of the cube, counter clockwise</td>
                                             </tr>
                                             <tr>
                                                 <td>u</td>
-                                                <td>Top side of the cube, clockwhise</td>
+                                                <td>Top side of the cube, clockwise</td>
                                             </tr>
                                             <tr>
                                                 <td>U</td>
-                                                <td>Top side of the cube, counter clockwhise</td>
+                                                <td>Top side of the cube, counter clockwise</td>
                                             </tr>
                                             <tr>
                                                 <td>d</td>
-                                                <td>Bottom side of the cube, clockwhise</td>
+                                                <td>Bottom side of the cube, clockwise</td>
                                             </tr>
                                             <tr>
                                                 <td>D</td>
-                                                <td>Bottom side of the cube, counter clockwhise</td>
+                                                <td>Bottom side of the cube, counter clockwise</td>
                                             </tr>
                                             <tr>
                                                 <td>m</td>
-                                                <td>Middle row of the cube (X), clockwhise</td>
+                                                <td>Middle row of the cube (X), clockwise</td>
                                             </tr>
                                             <tr>
                                                 <td>M</td>
-                                                <td>Middle row of the cube (X), counter clockwhise</td>
+                                                <td>Middle row of the cube (X), counter clockwise</td>
                                             </tr>
                                             <tr>
                                                 <td>w</td>
-                                                <td>Middle row of the cube (Y), clockwhise</td>
+                                                <td>Middle row of the cube (Y), clockwise</td>
                                             </tr>
                                             <tr>
                                                 <td>W</td>
-                                                <td>Middle row of the cube (Y), counter clockwhise</td>
+                                                <td>Middle row of the cube (Y), counter clockwise</td>
                                             </tr>
                                           </tbody>
                                         </table>
@@ -714,7 +800,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Neccesary iformation</h2>
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Necessary Information</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -726,16 +812,11 @@
                                     <!-- Portfolio Modal - Text-->
                                     <ul style="text-align: left;">
                                         <li>The "play" button opens the auto-solving mode of the cube.</li>
-                                        <li>The "algorithm mode" button opens the leanrning mode. You can add your own algorithms, or learn the pre programmed ones, if you dont need them anymore, you can delete them later.</li>
-                                        <li>The "settings" button opens a new page, where you can set the color of the cube, and some other settings. You can make the cube stop in every move, or make the face-ids show.</li>
+                                        <li>The "algorithm mode" button opens the learning mode. You can add your own algorithms or learn the pre-programmed ones, if you don't need them anymore, you can delete them later.</li>
+                                        <li>The "settings" button opens a new page, where you can set the color of the cube and some other settings. You can make the cube stop in every move, or make the Face-IDs show. The facial identifiers serve as distinct markers for each side of a puzzle. Consequently, every individual sticker possesses a unique identification, such as the aforementioned. Within the human-solving approach, these identifiers are denoted by alphabetic characters. For further information, please refer to the sections on corner and edge parity.</li>
                                         <li>The "info" button will open this webpage.</li>
-                                        <li>Your keypresses won't register until the animation is over. For the flowless working of the program and for the best experience, please always wait for the animation.</li>
-                                        <li>You can "ruin" the solving by:
-                                            <ul style="text-align: left;">
-                                                <li>Turning the cube while it solves itself.</li>
-                                                <li>Turning w or m moves, when you shuffle the cube. (clockwhise and counter clockwhise both)</li>
-                                            </ul>
-                                        </li>
+                                        <li>Your keypresses won't register until the animation is over. For the flawless working of the program and for the best experience, please always wait for the animation to end.</li>
+                                        <li>You can "ruin" the solving by turning w or m moves, when you shuffle the cube. (clockwise and counter clockwise both)</li>
                                     </ul>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>

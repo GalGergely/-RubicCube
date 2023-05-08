@@ -15,6 +15,10 @@ import java.util.Objects;
 import algorithm.*;
 import cubeAssets.*;
 import settings.*;
+import javax.swing.ImageIcon;
+import java.awt.Image;
+import java.net.URL;
+import processing.awt.PSurfaceAWT;
 
 
 public class GergosCube extends PApplet {
@@ -31,6 +35,8 @@ public class GergosCube extends PApplet {
     public void setup() {
         setting = new Settings();
         cam = new PeasyCam(this, setting.cameraZoomIn);
+        cam.setMaximumDistance(2000);
+        cam.setMinimumDistance(200);
         algorithm = new AlgorithmCollection();
         logWriter = new LogWriter();
         logWriter.clearLogs();
@@ -51,6 +57,7 @@ public class GergosCube extends PApplet {
      * and moves the cube if the moveList is not empty.
      */
     public void draw() {
+        setting.strokeWeight=(float) (60/cam.getDistance());
         move.update();
         background(setting.backgroundColor.getRGB());
         cube.getCube().drawCube(move);
@@ -72,7 +79,10 @@ public class GergosCube extends PApplet {
             if (key == 'm' || key == 'M' || key == 'w' || key == 'W') {
                 logWriter.log("If you want the cube to solve itself, this move is illegal. Redo it if needed.");
             }
-            this.cube.moveList += str(key);
+            if(!this.cube.isSolving()) {
+                this.cube.moveList += str(key);
+            }
+
         }
     }
 

@@ -48,6 +48,8 @@ public class MainApp {
      */
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("Gergos Cube Menu");
+        ImageIcon logo = new ImageIcon(Objects.requireNonNull(MainApp.class.getClassLoader().getResource("inputs/icon.png")));
+        frame.setIconImage(logo.getImage());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 500);
         JPanel mainPanel = new JPanel();
@@ -121,7 +123,7 @@ public class MainApp {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
-                    Desktop.getDesktop().browse(new URI("C:/Egyetem/RubicCube/Webpage/index.html"));
+                    Desktop.getDesktop().browse(new URI("https://people.inf.elte.hu/gt8yb1/"));
                 } catch (IOException | URISyntaxException ex) {
                     ex.printStackTrace();
                 }

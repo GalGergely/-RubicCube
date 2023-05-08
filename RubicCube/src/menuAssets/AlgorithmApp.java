@@ -43,6 +43,8 @@ public class AlgorithmApp extends JFrame {
      */
     private static void createAndShowGUI(JFrame parentFrame) {
         JFrame frame = new JFrame("Algorithm Mode");
+        ImageIcon logo = new ImageIcon(Objects.requireNonNull(AlgorithmApp.class.getClassLoader().getResource("inputs/icon.png")));
+        frame.setIconImage(logo.getImage());
         frame.setSize(500, 300);
 
         JLayeredPane layeredPane = new JLayeredPane();

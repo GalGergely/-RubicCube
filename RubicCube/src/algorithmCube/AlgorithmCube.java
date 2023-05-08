@@ -43,6 +43,8 @@ public class AlgorithmCube extends PApplet {
     public void setup() {
         setting = new Settings();
         cam = new PeasyCam(this, setting.cameraZoomIn);
+        cam.setMaximumDistance(2000);
+        cam.setMinimumDistance(200);
         algorithm = new AlgorithmCollection();
         logWriter = new LogWriter();
         logWriter.clearLogs();

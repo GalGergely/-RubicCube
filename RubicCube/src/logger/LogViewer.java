@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.List;
+import java.util.Objects;
 
 public class LogViewer {
     private final LogReader logReader;
@@ -23,6 +24,8 @@ public class LogViewer {
     public LogViewer(LogReader logReader) {
         this.logReader = logReader;
         this.frame = new JFrame("Log Viewer");
+        ImageIcon logo = new ImageIcon(Objects.requireNonNull(getClass().getClassLoader().getResource("inputs/icon.png")));
+        this.frame.setIconImage(logo.getImage());
     }
 
     /**
