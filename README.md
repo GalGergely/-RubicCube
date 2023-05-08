@@ -1,4 +1,3 @@
-> <img src="media/image1.png" style="width:2.19097in;height:1.88542in" />
 > EÖTVÖS LORÁND TUDOMÁNYEGYETEM
 >
 > Informatika Kar
