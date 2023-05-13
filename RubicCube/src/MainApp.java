@@ -96,7 +96,6 @@ public class MainApp {
                 LogReader logReader = new LogReader();
                 LogViewer logViewer = new LogViewer(logReader);
                 logViewer.start();
-                logViewer.setAlwaysOnTop(true);
 
                 frame.setVisible(false);
 

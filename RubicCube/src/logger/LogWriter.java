@@ -41,7 +41,7 @@ public class LogWriter {
     public void clearLogs() {
         synchronized (LOG_FILE) {
             try (BufferedWriter writer = Files.newBufferedWriter(Paths.get(LOG_FILE), StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING)) {
-                // Becouse of the TRUNCATE_EXISTING the contents of thi file will be deleted.
+                // Because of the TRUNCATE_EXISTING the contents of thi file will be deleted.
             } catch (IOException e) {
                 e.printStackTrace();
             }

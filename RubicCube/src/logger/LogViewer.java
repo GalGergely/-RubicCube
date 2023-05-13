@@ -8,16 +8,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+
 import java.util.List;
 import java.util.Objects;
 
 public class LogViewer {
     private final LogReader logReader;
-    private JFrame frame;
+    private final JFrame frame;
     private JTextArea textArea;
-    private Timer timer;
     public Thread thread;
 
 
@@ -38,7 +36,7 @@ public class LogViewer {
                 createAndShowGUI();
             }
         });
-        thread.run();
+        thread.start();
     }
 
     /**
@@ -56,7 +54,7 @@ public class LogViewer {
         JScrollPane scrollPane = new JScrollPane(textArea);
         this.frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 
-        timer = new Timer(1000, new ActionListener() {
+        Timer timer = new Timer(1000, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 refreshLogs();
@@ -78,14 +76,5 @@ public class LogViewer {
             sb.append("\n");
         }
         textArea.setText(sb.toString());
-    }
-
-    /**
-     * Sets the LogViewer's frame to always be on top.
-     *
-     * @param b A boolean indicating if the frame should always be on top.
-     */
-    public void setAlwaysOnTop(boolean b) {
-        this.frame.setAlwaysOnTop(b);
     }
 }
