@@ -2,9 +2,7 @@ package cubeAssets;
 
 import org.junit.Before;
 import org.junit.Test;
-import processing.core.PMatrix3D;
 import processing.core.PVector;
-import settings.Facing;
 import settings.Settings;
 
 import java.util.ArrayList;

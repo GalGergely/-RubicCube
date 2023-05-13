@@ -10,33 +10,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="14ddce28-8366-414e-9b72-0420f22b9046" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/RubicCube_jar/RubicCube.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/RubicCube_jar/RubicCube.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/MainApp$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/MainApp$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/MainApp$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/MainApp$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/MainApp$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/MainApp$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/MainApp$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/MainApp$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/MainApp$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/MainApp$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/MainApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/MainApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/inputs/algorithms.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/inputs/algorithms.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/inputs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/inputs/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/logger/LogViewer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/logger/LogViewer$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/logger/LogViewer$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/logger/LogViewer$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/logger/LogViewer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/logger/LogViewer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/menuAssets/AlgorithmApp$2$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/menuAssets/AlgorithmApp$2$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/menuAssets/AlgorithmApp$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/menuAssets/AlgorithmApp$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/menuAssets/AlgorithmApp$3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/menuAssets/AlgorithmApp$3$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/menuAssets/AlgorithmApp$3$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/menuAssets/AlgorithmApp$3$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/menuAssets/AlgorithmApp$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/menuAssets/AlgorithmApp$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/RubicCube/menuAssets/AlgorithmApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/RubicCube/menuAssets/AlgorithmApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/inputs/algorithms.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/algorithms.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/inputs/application.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/inputs/application.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logger/LogViewer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logger/LogViewer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/logger/LogWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/logger/LogWriter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/menuAssets/AlgorithmApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/menuAssets/AlgorithmApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/cubeAssets/CubeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/cubeAssets/CubeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
