@@ -1,13 +1,12 @@
-/**
- * IdDisplay is a class responsible for displaying face IDs on the cube.
- */
 package settings;
 
 import processing.core.PApplet;
-
+/**
+ * IdDisplay is a class responsible for displaying face IDs on the cube.
+ */
 public class IdDisplay {
     private final PApplet sketch;
-    int id;
+    private int id;
 
     /**
      * Constructor for the IdDisplay class.

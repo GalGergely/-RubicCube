@@ -23,14 +23,14 @@ public class RubiksCubeLogic  {
     private final LogWriter logWriter;
     private final Settings setting;
     private final PApplet sketch;
-    public String moveList = "";
-    private boolean solving = false;
+    public String moveList;
+    private boolean solving ;
     private final Cube cube;
     private final AlgorithmCollection algorithmCollection;
     private final OldPochmanCollection op;
-    private int moveCounter = 0;
-    private boolean edgesSolved = false;
-    private boolean isParityNeeded = true;
+    private int moveCounter;
+    private boolean edgesSolved;
+    private boolean isParityNeeded;
 
     /**
      * Constructs a new RubiksCubeLogic object with the specified sketch, settings, and log writer.
@@ -44,8 +44,13 @@ public class RubiksCubeLogic  {
         this.setting = setting;
         this.sketch = sketch;
         this.algorithmCollection = new AlgorithmCollection();
-        this.cube = new Cube(this.sketch, this.setting);
+        this.cube = new Cube(sketch, setting);
         this.op = new OldPochmanCollection();
+        this.moveList="";
+        this.solving=false;
+        this.moveCounter = 0;
+        this.edgesSolved = false;
+        this.isParityNeeded = true;
     }
 
 
@@ -105,7 +110,7 @@ public class RubiksCubeLogic  {
             }
             int id = this.lookForCornerBuffer();
             if (id != 3 && id != 5 && id != 0) {
-                SolveOnePiece(id);
+                solveOnePiece(id);
                 if (this.setting.stepByStepSolving) {
                     this.solving = false;
                 }
@@ -125,7 +130,7 @@ public class RubiksCubeLogic  {
         } else {
             int id = this.lookForEdgeBuffer();
             if (id != 117 && id != 118) {
-                SolveOnePiece(id);
+                solveOnePiece(id);
                 if (this.setting.stepByStepSolving) {
                     this.solving = false;
                 }
@@ -158,7 +163,7 @@ public class RubiksCubeLogic  {
                 if (face.getId() == 117 || face.getId() == 118 || face.getId() == 3 || face.getId() == 5 || face.getId() == 0) {
                     return false;
                 }
-                SolveOnePiece(face.getId());
+                solveOnePiece(face.getId());
                 return true;
             }
         }
@@ -170,14 +175,11 @@ public class RubiksCubeLogic  {
      *
      * @param id the ID of the piece to solve
      */
-    public void SolveOnePiece(int id) {
+    public void solveOnePiece(int id) {
         this.moveCounter++;
         OldPochmanAlgorithm algo = this.moveToTarget(id);
         this.moveList += PApplet.join(algo.getSetup(),"");
         this.moveList += PApplet.join(algorithmCollection.getAlgorithm(algo.getAlgorithmName()).getMoves(), "");
-        try {
-            Thread.sleep(100);
-        } catch(Exception ignored) {}
         String reversedMoves = reverseAlgorithm(algo.getSetup());
         logMove(Integer.toString(id), PApplet.join(algo.getSetup(),""), algorithmCollection.getAlgorithm(algo.getAlgorithmName()).getName(), reversedMoves);
         this.moveList += reversedMoves;
