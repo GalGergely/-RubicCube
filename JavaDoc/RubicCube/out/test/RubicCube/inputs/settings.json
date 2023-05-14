@@ -1,0 +1,46 @@
+{
+  "orange": [
+    239,
+    153,
+    104
+  ],
+  "red": [
+    211,
+    87,
+    87
+  ],
+  "backgroundColor": [
+    155,
+    200,
+    200
+  ],
+  "green": [
+    121,
+    185,
+    119
+  ],
+  "blue": [
+    118,
+    145,
+    172
+  ],
+  "white": [
+    255,
+    255,
+    255
+  ],
+  "stepByStepSolving": false,
+  "strokeWeight": 0.1,
+  "yellow": [
+    238,
+    214,
+    128
+  ],
+  "cameraZoomIn": 500,
+  "strokeColor": [
+    0,
+    0,
+    0
+  ],
+  "faceIdsCheckBox": false
+}

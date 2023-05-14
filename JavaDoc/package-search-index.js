@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"algorithm"},{"l":"algorithmCube"},{"l":"All Packages","u":"allpackages-index.html"},{"l":"cubeAssets"},{"l":"logger"},{"l":"menuAssets"},{"l":"selfSolvingCube"},{"l":"settings"}];updateSearchResults();
