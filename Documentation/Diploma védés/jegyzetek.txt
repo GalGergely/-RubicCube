@@ -1,0 +1,54 @@
+1.dia
+Gyerekkorom óta érdekel.
+nagy szenvedély
+nem tudom vakon kirakni
+
+2.dia
+- Jack Cai
+- vakon
+- 2 elem csere
+- élek -> sakrkok
+- 1x megnezni
+
+3.dia
+Hogy lesz ebböl vakon kkirakás?
+- memorizáció
+- betüvel jelölt id
+- programban szám
+- 1 buffer és 1 target
+- bufferbol rakjuk a helyére
+- megoldás menete
+- 20-25 betu megjegyzése
+- betuk szavak mondatok
+
+4.dia
+- kimenet összeköti a programot és az emberi megoldást
+- 5 blockra osztás
+- számok helyett betük
+- weboldal
+- kicsi -> oramutato jarasaval megegyezo
+
+5.dia
+- Beállítások, és bövitese
+- Egyszerubb:
+	- kocka forgatási sebessége
+	- megállás forgatásonként
+- bonyolultabb
+	- más metódusok
+	- más kocka méretek
+
+
+6.dia
+- gyakorló alkalmazás, nem játék telejesen laikusoknak
+- bizonyos tudást feltételez
+	- weboldalon megtalálható minden
+- játékmódok
+- szukseges algoritmusok benne vannak
+- elrontas utan ujraidnul
+- szabad jatek es onkirakas
+
+plussz dolgok:
+- algoritmus mód jobban bemutatása.
+- szhín változik de forgás nincs?
+- ne beszéljek annyit a negatívumokról
+
